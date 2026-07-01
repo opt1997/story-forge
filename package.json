@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "exec:mock": "node scripts/run_ai_execution.js --provider=mock",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"

@@ -18,6 +18,9 @@ const pipelineFiles = [
   ["qa_v2.json", "qa_v2.json"],
   ["final.md", "final.md"],
   ["story_manifest.json", "story_manifest.json"],
+  ["execution_trace.json", "execution_trace.json"],
+  ["agent_io.jsonl", "agent_io.jsonl"],
+  ["pipeline_state.json", "pipeline_state.json"],
   ["health_report.json", "health_report.json"],
 ];
 
@@ -30,6 +33,23 @@ function shanghaiDate() {
   }).formatToParts(new Date());
   const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
   return `${values.year}${values.month}${values.day}`;
+}
+
+function nodeCandidates() {
+  return [
+    process.env.STORY_FORGE_NODE,
+    process.execPath,
+    path.join(
+      process.env.USERPROFILE || "C:\\Users\\Administrator",
+      ".cache",
+      "codex-runtimes",
+      "codex-primary-runtime",
+      "dependencies",
+      "node",
+      "bin",
+      "node.exe",
+    ),
+  ].filter(Boolean);
 }
 
 function pythonCandidates() {
@@ -81,8 +101,19 @@ function runCommand(command, args) {
 
 async function runWorkflow() {
   const date = shanghaiDate();
+  const aiExecutionScript = path.join(root, "scripts", "run_ai_execution.js");
+  const aiErrors = [];
+  for (const command of nodeCandidates()) {
+    try {
+      const stdout = await runCommand(command, [aiExecutionScript, `--date=${date}`, "--provider=mock"]);
+      return JSON.parse(stdout);
+    } catch (error) {
+      aiErrors.push(`${command}: ${error.message}`);
+    }
+  }
+
   const script = path.join(root, "scripts", "story_forge.py");
-  const errors = [];
+  const legacyErrors = [];
   for (const command of pythonCandidates()) {
     try {
       const args =
@@ -92,10 +123,10 @@ async function runWorkflow() {
       const stdout = await runCommand(command, args);
       return JSON.parse(stdout);
     } catch (error) {
-      errors.push(`${command}: ${error.message}`);
+      legacyErrors.push(`${command}: ${error.message}`);
     }
   }
-  throw new Error(errors.join(" | "));
+  throw new Error(`AI errors: ${aiErrors.join(" | ")} Legacy errors: ${legacyErrors.join(" | ")}`);
 }
 
 function makeHealth(runId, storyId) {

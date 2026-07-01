@@ -133,3 +133,23 @@ http://localhost:3000
 ```
 
 M3.1 不调用真实 AI API，不接入发布平台，不开发用户系统、复杂图表、prompt 编辑器或 metrics 分析页。
+
+## Real AI Execution Architecture
+
+当前执行架构采用 mock provider 渐进升级，不调用真实 OpenAI 或 Claude API。可用以下命令运行新的分层执行链路：
+
+```powershell
+node scripts/run_ai_execution.js --provider=mock
+```
+
+执行层次：
+
+```text
+Story Manager plan
+Workflow Engine
+Agent Runtime
+LLM Provider
+Mock LLM
+```
+
+本阶段新增 execution trace、agent input/output log 和 pipeline state tracking。真实 OpenAI / Claude Provider 已保留接口，但默认禁用，后续接入 API key 后再启用。
