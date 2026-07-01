@@ -24,7 +24,7 @@ function formatDate(value) {
 }
 
 export default function DashboardPage() {
-  const [dashboard, setDashboard] = useState({ active_run: null, stories: [] });
+  const [dashboard, setDashboard] = useState({ runtime: null, active_run: null, stories: [] });
   const [runId, setRunId] = useState("");
   const [showDialog, setShowDialog] = useState(false);
   const [count, setCount] = useState("1");
@@ -188,7 +188,10 @@ export default function DashboardPage() {
 
           <div className="rounded-md border border-line bg-white p-4">
             <p className="text-sm text-neutral-500">本地存储</p>
-            <dl className="mt-4 grid gap-3">
+            <div className="mt-4">
+              <RuntimeStatus runtime={dashboard.runtime} />
+            </div>
+            <dl className="mt-3 grid gap-3">
               <Metric label="已完成故事" value={completedStories.length} />
               <Metric label="SQLite" value="story_forge.sqlite" />
               <Metric label="状态源" value="progress + DB" />
@@ -321,6 +324,28 @@ function Metric({ label, value }) {
     <div className="rounded-md border border-line bg-paper p-3">
       <dt className="text-xs text-neutral-500">{label}</dt>
       <dd className="mt-1 break-all text-sm font-semibold">{value}</dd>
+    </div>
+  );
+}
+
+function RuntimeStatus({ runtime }) {
+  const mode = runtime?.mode || "mock";
+  const modeText = mode === "api" ? "API 模式" : mode === "missing_key" ? "缺少密钥" : "Mock 模式";
+  const statusClass = mode === "api"
+    ? "border-forest bg-emerald-50 text-forest"
+    : mode === "missing_key"
+      ? "border-coral bg-red-50 text-coral"
+      : "border-amber bg-amber-50 text-amber";
+
+  return (
+    <div className={`rounded-md border p-3 ${statusClass}`}>
+      <p className="text-xs font-semibold">当前运行模式</p>
+      <p className="mt-1 text-lg font-semibold">{modeText}</p>
+      <p className="mt-1 text-xs">Provider: {runtime?.provider || "mock"}</p>
+      <p className="text-xs">Model: {runtime?.model || "mock-model"}</p>
+      {runtime?.key_env ? (
+        <p className="text-xs">{runtime.has_api_key ? `${runtime.key_env} 已检测到` : `未检测到 ${runtime.key_env}`}</p>
+      ) : null}
     </div>
   );
 }

@@ -16,6 +16,51 @@ const PIPELINE_FILES = [
   ["pipeline_state.json", "pipeline_state.json"],
 ];
 
+const PROVIDER_CONFIG = {
+  mock: {
+    keyEnv: null,
+    defaultModel: "mock-model",
+  },
+  openai: {
+    keyEnv: "OPENAI_API_KEY",
+    modelEnv: "STORY_FORGE_OPENAI_MODEL",
+    defaultModel: "gpt-5.5",
+  },
+  deepseek: {
+    keyEnv: "DEEPSEEK_API_KEY",
+    modelEnv: "STORY_FORGE_DEEPSEEK_MODEL",
+    defaultModel: "deepseek-v4-flash",
+  },
+  claude: {
+    keyEnv: "CLAUDE_API_KEY",
+    modelEnv: "STORY_FORGE_CLAUDE_MODEL",
+    defaultModel: "claude-provider-placeholder",
+  },
+};
+
+function normalizeProviderName(value) {
+  const provider = String(value || "mock").trim().toLowerCase();
+  return PROVIDER_CONFIG[provider] ? provider : "mock";
+}
+
+function getRuntimeStatus() {
+  const provider = normalizeProviderName(process.env.STORY_FORGE_LLM_PROVIDER);
+  const config = PROVIDER_CONFIG[provider];
+  const hasApiKey = config.keyEnv ? Boolean(process.env[config.keyEnv]) : false;
+  const model = config.modelEnv ? process.env[config.modelEnv] || config.defaultModel : config.defaultModel;
+  const mode = provider === "mock" ? "mock" : hasApiKey ? "api" : "missing_key";
+
+  return {
+    provider,
+    mode,
+    model,
+    key_env: config.keyEnv,
+    has_api_key: hasApiKey,
+    api_enabled: mode === "api",
+    label: mode === "api" ? `${provider} API Mode` : mode === "missing_key" ? `${provider} Missing Key` : "Mock Mode",
+  };
+}
+
 function shanghaiDate() {
   const parts = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Shanghai",
@@ -443,6 +488,7 @@ async function getDashboardState(root, runId) {
   });
 
   return {
+    runtime: getRuntimeStatus(),
     active_run: run
       ? {
           ...run,
@@ -715,6 +761,7 @@ function progressPath(root, runId, storyIndex) {
 module.exports = {
   getDashboardState,
   getStoryDetail,
+  getRuntimeStatus,
   initDashboardStore,
   startDashboardRun,
   updateStoryMetrics,

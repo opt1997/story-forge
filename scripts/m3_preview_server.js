@@ -55,6 +55,10 @@ function html() {
     .done { border-color: #1f6b57; color: #1f6b57; background: #edf8f4; }
     .running, .rewrite { border-color: #b7791f; color: #8a570f; background: #fff8e8; }
     .failed { border-color: #c65f46; color: #c65f46; background: #fff0ed; }
+    .runtime { border: 1px solid #b7791f; border-radius: 8px; padding: 12px; margin-top: 12px; background: #fff8e8; color: #8a570f; }
+    .runtime.api { border-color: #1f6b57; background: #edf8f4; color: #1f6b57; }
+    .runtime.missing { border-color: #c65f46; background: #fff0ed; color: #c65f46; }
+    .runtime p { margin: 6px 0 0; font-size: 13px; }
     .timeline { margin-top: 16px; }
     .timeline-item { border: 1px solid #ded8cc; border-radius: 8px; background: #f7f5ef; padding: 14px; margin-top: 10px; }
     .timeline-grid { display: grid; grid-template-columns: 1fr 170px 170px 90px; gap: 12px; align-items: start; }
@@ -86,6 +90,7 @@ function html() {
     </div>
     <div class="card">
       <div class="muted">本地存储</div>
+      <div id="runtime-status" class="runtime"></div>
       <p><strong id="done-count">0</strong> completed stories</p>
       <p>SQLite: <code>metrics/story_forge.sqlite</code></p>
       <p>Source: progress + DB</p>
@@ -113,7 +118,7 @@ function html() {
 <script>
 let activeRunId = "";
 let pollTimer = null;
-let dashboard = { active_run: null, stories: [] };
+let dashboard = { runtime: null, active_run: null, stories: [] };
 const errorNode = document.getElementById("error");
 const dialog = document.getElementById("dialog");
 
@@ -212,6 +217,17 @@ async function toggleStory(storyId) {
 }
 
 function render() {
+  const runtime = dashboard.runtime || { provider: "mock", mode: "mock", model: "mock-model" };
+  const runtimeNode = document.getElementById("runtime-status");
+  const runtimeClass = runtime.mode === "api" ? "runtime api" : runtime.mode === "missing_key" ? "runtime missing" : "runtime";
+  const modeText = runtime.mode === "api" ? "API 模式" : runtime.mode === "missing_key" ? "缺少密钥" : "Mock 模式";
+  runtimeNode.className = runtimeClass;
+  runtimeNode.innerHTML =
+    '<strong>当前运行模式：' + modeText + '</strong>' +
+    '<p>Provider: <code>' + escapeHtml(runtime.provider || "mock") + '</code></p>' +
+    '<p>Model: <code>' + escapeHtml(runtime.model || "mock-model") + '</code></p>' +
+    (runtime.key_env ? '<p>' + (runtime.has_api_key ? escapeHtml(runtime.key_env) + ' 已检测到' : '未检测到 ' + escapeHtml(runtime.key_env)) + '</p>' : "");
+
   const run = dashboard.active_run;
   document.getElementById("run-status").textContent = run ? run.status : "idle";
   const running = document.getElementById("running-stories");
