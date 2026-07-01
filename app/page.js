@@ -1,226 +1,345 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-const STAGES = [
-  "Strategy",
-  "Idea",
-  "Outline",
-  "Writer",
-  "QA",
-  "Rewrite",
-  "Final",
-  "Recorder",
-  "Health Check",
-];
-
-const INITIAL_STATUS = Object.fromEntries(STAGES.map((stage) => [stage, "pending"]));
-
-const PIPELINE_KEY = {
-  Strategy: "strategy",
-  Idea: "idea",
-  Outline: "outline",
-  Writer: "writer",
-  QA: "qa",
-  Rewrite: "rewrite",
-  Final: "final",
-  Recorder: "recorder",
-  "Health Check": "health_check",
-};
-
-function statusClass(status) {
-  if (status === "success" || status === "passed") return "border-forest bg-emerald-50 text-forest";
-  if (status === "running") return "border-amber bg-amber-50 text-amber";
+function badgeClass(status) {
+  if (status === "done" || status === "success") return "border-forest bg-emerald-50 text-forest";
+  if (status === "running" || status === "rewrite") return "border-amber bg-amber-50 text-amber";
   if (status === "failed") return "border-coral bg-red-50 text-coral";
   return "border-line bg-white text-neutral-500";
 }
 
-function statusDot(status) {
-  if (status === "success" || status === "passed") return "bg-forest";
-  if (status === "running") return "bg-amber";
-  if (status === "failed") return "bg-coral";
-  return "bg-neutral-300";
+function stepLabel(step) {
+  if (!step) return "Pending";
+  if (step.stage === "Done") return "Done";
+  if (["Writer", "QA", "Rewrite"].includes(step.stage)) return `${step.stage}(${step.iteration || 1})`;
+  return step.stage;
+}
+
+function formatDate(value) {
+  if (!value) return "--";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleString("zh-CN", { hour12: false });
 }
 
 export default function DashboardPage() {
-  const [stageStatus, setStageStatus] = useState(INITIAL_STATUS);
-  const [isRunning, setIsRunning] = useState(false);
-  const [result, setResult] = useState(null);
+  const [dashboard, setDashboard] = useState({ active_run: null, stories: [] });
+  const [runId, setRunId] = useState("");
+  const [showDialog, setShowDialog] = useState(false);
+  const [count, setCount] = useState("1");
   const [error, setError] = useState("");
+  const [isStarting, setIsStarting] = useState(false);
+  const [expandedId, setExpandedId] = useState("");
+  const [storyDetail, setStoryDetail] = useState(null);
+  const [savingId, setSavingId] = useState("");
+  const [metricDrafts, setMetricDrafts] = useState({});
 
-  const todayStatus = useMemo(() => {
-    if (error) return "failed";
-    if (isRunning) return "running";
-    if (result) return result.status;
-    return "pending";
-  }, [error, isRunning, result]);
+  const activeRun = dashboard.active_run;
+  const completedStories = useMemo(
+    () => (dashboard.stories || []).filter((story) => story.status === "done"),
+    [dashboard.stories],
+  );
+
+  useEffect(() => {
+    refreshDashboard();
+  }, []);
+
+  useEffect(() => {
+    if (!runId) return undefined;
+    const timer = window.setInterval(() => refreshDashboard(runId), 1200);
+    return () => window.clearInterval(timer);
+  }, [runId]);
+
+  useEffect(() => {
+    const drafts = {};
+    for (const story of dashboard.stories || []) {
+      drafts[story.id] = {
+        read_count: String(story.read_count ?? 0),
+        drop_off_users: String(story.drop_off_users ?? 0),
+      };
+    }
+    setMetricDrafts((current) => ({ ...drafts, ...current }));
+  }, [dashboard.stories]);
+
+  async function refreshDashboard(targetRunId = runId) {
+    const query = targetRunId ? `?run_id=${encodeURIComponent(targetRunId)}` : "";
+    const response = await fetch(`/api/dashboard${query}`, { cache: "no-store" });
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.error || "Dashboard refresh failed");
+    setDashboard(payload);
+    if (payload.active_run && payload.active_run.status !== "running") {
+      setRunId("");
+    }
+  }
+
+  function validateCount() {
+    if (!/^\d+$/.test(count)) return "请输入数字。";
+    const value = Number(count);
+    if (!Number.isInteger(value) || value < 1 || value > 5) return "故事数量必须是 1 到 5 的正整数。";
+    return "";
+  }
 
   async function startToday() {
-    setIsRunning(true);
-    setResult(null);
-    setError("");
-    setStageStatus(INITIAL_STATUS);
-
-    let activeIndex = 0;
-    const timer = window.setInterval(() => {
-      setStageStatus((current) => {
-        const next = { ...current };
-        STAGES.forEach((stage, index) => {
-          if (index < activeIndex) next[stage] = "success";
-          if (index === activeIndex) next[stage] = "running";
-        });
-        activeIndex = Math.min(activeIndex + 1, STAGES.length - 1);
-        return next;
-      });
-    }, 220);
-
-    try {
-      const response = await fetch("/api/start-today", { method: "POST" });
-      const payload = await response.json();
-      if (!response.ok) {
-        throw new Error(payload.error || "Workflow failed");
-      }
-
-      window.clearInterval(timer);
-      const finalStatuses = { ...INITIAL_STATUS };
-      for (const stage of STAGES) {
-        finalStatuses[stage] = payload.pipeline?.[PIPELINE_KEY[stage]] || "success";
-      }
-      setStageStatus(finalStatuses);
-      setResult(payload);
-    } catch (runError) {
-      window.clearInterval(timer);
-      setError(runError.message);
-      setStageStatus((current) => {
-        const next = { ...current };
-        const runningStage = STAGES.find((stage) => current[stage] === "running") || "Strategy";
-        next[runningStage] = "failed";
-        return next;
-      });
-    } finally {
-      setIsRunning(false);
+    const message = validateCount();
+    if (message) {
+      setError(message);
+      return;
     }
+    setError("");
+    setIsStarting(true);
+    try {
+      const response = await fetch("/api/start-today", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ count: Number(count) }),
+      });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || "Workflow failed");
+      setDashboard(payload);
+      setRunId(payload.active_run?.id || "");
+      setShowDialog(false);
+    } catch (runError) {
+      setError(runError.message);
+    } finally {
+      setIsStarting(false);
+    }
+  }
+
+  async function saveMetrics(storyId) {
+    setSavingId(storyId);
+    setError("");
+    try {
+      const draft = metricDrafts[storyId] || {};
+      const response = await fetch("/api/story-metrics", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          story_id: storyId,
+          read_count: Number(draft.read_count || 0),
+          drop_off_users: Number(draft.drop_off_users || 0),
+        }),
+      });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || "Metrics update failed");
+      await refreshDashboard();
+      if (expandedId === storyId) setStoryDetail(payload);
+    } catch (saveError) {
+      setError(saveError.message);
+    } finally {
+      setSavingId("");
+    }
+  }
+
+  async function toggleStory(storyId) {
+    if (expandedId === storyId) {
+      setExpandedId("");
+      setStoryDetail(null);
+      return;
+    }
+    const response = await fetch(`/api/story?story_id=${encodeURIComponent(storyId)}`, { cache: "no-store" });
+    const payload = await response.json();
+    if (!response.ok) {
+      setError(payload.error || "Story detail failed");
+      return;
+    }
+    setExpandedId(storyId);
+    setStoryDetail(payload);
   }
 
   return (
     <main className="min-h-screen bg-paper px-5 py-6 text-ink md:px-8">
-      <section className="mx-auto flex max-w-6xl flex-col gap-6">
+      <section className="mx-auto flex max-w-7xl flex-col gap-5">
         <header className="flex flex-col gap-4 border-b border-line pb-5 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-medium uppercase tracking-wide text-forest">M3.1 Dashboard</p>
+            <p className="text-sm font-medium uppercase text-forest">Story Production Console</p>
             <h1 className="mt-1 text-3xl font-semibold">Story Forge</h1>
           </div>
           <button
             type="button"
-            onClick={startToday}
-            disabled={isRunning}
-            className="inline-flex h-11 items-center justify-center rounded-md bg-ink px-5 text-sm font-semibold text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:bg-neutral-400"
+            onClick={() => setShowDialog(true)}
+            className="inline-flex h-11 items-center justify-center rounded-md bg-ink px-5 text-sm font-semibold text-white transition hover:bg-neutral-700"
           >
-            {isRunning ? "运行中..." : "开始今天创作"}
+            开始今天的创作
           </button>
         </header>
 
-        <section className="grid gap-4 md:grid-cols-[1fr_2fr]">
+        {error ? <div className="rounded-md border border-coral bg-red-50 px-4 py-3 text-sm text-coral">{error}</div> : null}
+
+        <section className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="rounded-md border border-line bg-white p-4">
-            <p className="text-sm text-neutral-500">今日状态</p>
-            <div className="mt-3 flex items-center gap-3">
-              <span className={`h-3 w-3 rounded-full ${statusDot(todayStatus)}`} />
-              <p className="text-xl font-semibold">{todayStatus}</p>
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="text-sm text-neutral-500">当前运行</p>
+                <h2 className="mt-1 text-xl font-semibold">{activeRun ? activeRun.status : "idle"}</h2>
+              </div>
+              {activeRun ? <span className="break-all text-xs text-neutral-500">{activeRun.id}</span> : null}
             </div>
-            {error ? <p className="mt-3 text-sm text-coral">{error}</p> : null}
+            <div className="mt-4 grid gap-2">
+              {(activeRun?.stories || []).length ? (
+                activeRun.stories.map((story, index) => <StoryProgress key={`${story.id || index}`} story={story} index={index} />)
+              ) : (
+                <p className="rounded-md border border-line bg-paper px-3 py-6 text-center text-sm text-neutral-500">
+                  暂无运行中的故事
+                </p>
+              )}
+            </div>
           </div>
 
           <div className="rounded-md border border-line bg-white p-4">
-            <p className="mb-3 text-sm text-neutral-500">Pipeline</p>
-            <div className="grid gap-2 sm:grid-cols-3">
-              {STAGES.map((stage) => (
-                <div key={stage} className={`rounded-md border px-3 py-2 ${statusClass(stageStatus[stage])}`}>
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-sm font-medium">{stage}</span>
-                    <span className={`h-2.5 w-2.5 rounded-full ${statusDot(stageStatus[stage])}`} />
-                  </div>
-                  <p className="mt-1 text-xs">{stageStatus[stage]}</p>
-                </div>
-              ))}
-            </div>
+            <p className="text-sm text-neutral-500">本地存储</p>
+            <dl className="mt-4 grid gap-3">
+              <Metric label="已完成故事" value={completedStories.length} />
+              <Metric label="SQLite" value="story_forge.sqlite" />
+              <Metric label="状态源" value="progress + DB" />
+            </dl>
           </div>
         </section>
 
-        {result ? (
-          <section className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="rounded-md border border-line bg-white p-4">
-              <p className="text-sm text-neutral-500">Run Result</p>
-              <dl className="mt-3 grid gap-3 sm:grid-cols-2">
-                <div>
-                  <dt className="text-xs text-neutral-500">run_id</dt>
-                  <dd className="break-all text-sm font-medium">{result.run_id}</dd>
-                </div>
-                <div>
-                  <dt className="text-xs text-neutral-500">story_id</dt>
-                  <dd className="break-all text-sm font-medium">{result.story_id}</dd>
-                </div>
-                <div>
-                  <dt className="text-xs text-neutral-500">final status</dt>
-                  <dd className="text-sm font-medium">{result.status}</dd>
-                </div>
-                <div>
-                  <dt className="text-xs text-neutral-500">final_score</dt>
-                  <dd className="text-sm font-medium">{result.final_score}</dd>
-                </div>
-              </dl>
-
-              <div className="mt-5">
-                <p className="mb-2 text-sm font-medium">生成文件</p>
-                <div className="grid gap-2">
-                  {result.files?.map((file) => (
-                    <div
-                      key={file.label}
-                      className="flex items-center justify-between gap-3 rounded-md border border-line bg-paper px-3 py-2"
+        <section className="rounded-md border border-line bg-white p-4">
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <p className="text-sm text-neutral-500">已完成故事</p>
+              <h2 className="mt-1 text-xl font-semibold">时间轴</h2>
+            </div>
+          </div>
+          <div className="mt-4 grid gap-3">
+            {completedStories.length ? (
+              completedStories.map((story) => (
+                <article key={story.id} className="rounded-md border border-line bg-paper p-4">
+                  <div className="grid gap-4 lg:grid-cols-[1fr_220px_220px_auto] lg:items-start">
+                    <button type="button" onClick={() => toggleStory(story.id)} className="text-left">
+                      <p className="text-base font-semibold">✔ {story.title || story.id}</p>
+                      <p className="mt-1 text-xs text-neutral-500">{formatDate(story.created_at)}</p>
+                      <p className="mt-2 text-sm text-neutral-700">{story.summary}</p>
+                    </button>
+                    <MetricInput
+                      label="read_count"
+                      value={metricDrafts[story.id]?.read_count ?? "0"}
+                      onChange={(value) => setMetricDrafts((current) => ({ ...current, [story.id]: { ...current[story.id], read_count: value } }))}
+                    />
+                    <MetricInput
+                      label="drop_off_users"
+                      value={metricDrafts[story.id]?.drop_off_users ?? "0"}
+                      onChange={(value) =>
+                        setMetricDrafts((current) => ({ ...current, [story.id]: { ...current[story.id], drop_off_users: value } }))
+                      }
+                    />
+                    <button
+                      type="button"
+                      onClick={() => saveMetrics(story.id)}
+                      disabled={savingId === story.id}
+                      className="h-10 rounded-md border border-ink px-4 text-sm font-semibold disabled:opacity-50"
                     >
-                      <div>
-                        <p className="text-sm font-medium">{file.label}</p>
-                        <p className="break-all text-xs text-neutral-500">{file.path}</p>
+                      {savingId === story.id ? "保存中" : "保存"}
+                    </button>
+                  </div>
+                  {expandedId === story.id && storyDetail ? (
+                    <div className="mt-4 grid gap-3 border-t border-line pt-4 lg:grid-cols-[1fr_280px]">
+                      <pre className="max-h-96 overflow-auto whitespace-pre-wrap rounded-md bg-white p-3 text-sm">{storyDetail.final_text || "无正文"}</pre>
+                      <div className="rounded-md bg-white p-3 text-sm">
+                        <p className="font-semibold">流水线历史</p>
+                        <div className="mt-2 grid gap-2">
+                          {(storyDetail.pipeline_logs || []).map((log, index) => (
+                            <div key={`${log.stage}-${index}`} className="flex items-center justify-between rounded border border-line px-2 py-1">
+                              <span>{stepLabel({ stage: log.stage === "qa" ? "QA" : titleCase(log.stage), iteration: log.iteration })}</span>
+                              <span className="text-neutral-500">{log.status}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <span className={file.exists ? "text-sm font-semibold text-forest" : "text-sm text-coral"}>
-                        {file.exists ? "exists" : "missing"}
-                      </span>
                     </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-md border border-line bg-white p-4">
-              <p className="text-sm text-neutral-500">System Health</p>
-              <div className="mt-3 grid gap-3">
-                <HealthMetric label="Workflow Score" value={result.health?.scores?.workflow} />
-                <HealthMetric label="Data Flow Score" value={result.health?.scores?.data_flow} />
-                <HealthMetric label="Agent Permission Score" value={result.health?.scores?.agent_permission} />
-                <HealthMetric label="Metrics Integrity Score" value={result.health?.scores?.metrics_integrity} />
-              </div>
-              <div className="mt-4 rounded-md border border-line bg-paper p-3 text-sm">
-                <p>Story Quality: {result.health?.scores?.story_quality}/100</p>
-                <p>AI vs Human Gap: {result.health?.scores?.ai_vs_human_gap} 分</p>
-                <p>Prompt Drift: {result.health?.scores?.prompt_drift === "none" ? "无" : result.health?.scores?.prompt_drift}</p>
-              </div>
-            </div>
-          </section>
-        ) : null}
+                  ) : null}
+                </article>
+              ))
+            ) : (
+              <p className="rounded-md border border-line bg-paper px-3 py-6 text-center text-sm text-neutral-500">
+                还没有完成故事
+              </p>
+            )}
+          </div>
+        </section>
       </section>
+
+      {showDialog ? (
+        <div className="fixed inset-0 z-10 flex items-center justify-center bg-black/30 px-4">
+          <div className="w-full max-w-sm rounded-md bg-white p-5 shadow-xl">
+            <h2 className="text-lg font-semibold">开始今天的创作</h2>
+            <label className="mt-4 block text-sm font-medium" htmlFor="story-count">
+              本次生成故事数量
+            </label>
+            <input
+              id="story-count"
+              value={count}
+              onChange={(event) => setCount(event.target.value)}
+              inputMode="numeric"
+              className="mt-2 h-10 w-full rounded-md border border-line px-3"
+            />
+            <div className="mt-5 flex justify-end gap-2">
+              <button type="button" onClick={() => setShowDialog(false)} className="h-10 rounded-md border border-line px-4 text-sm">
+                取消
+              </button>
+              <button
+                type="button"
+                onClick={startToday}
+                disabled={isStarting}
+                className="h-10 rounded-md bg-ink px-4 text-sm font-semibold text-white disabled:opacity-50"
+              >
+                {isStarting ? "启动中" : "确认"}
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </main>
   );
 }
 
-function HealthMetric({ label, value }) {
+function StoryProgress({ story, index }) {
+  const steps = story.pipeline_steps || [];
   return (
-    <div className="rounded-md border border-line bg-paper p-3">
-      <div className="flex items-center justify-between gap-3">
-        <p className="text-sm font-medium">{label}</p>
-        <p className="text-lg font-semibold text-forest">{value ?? "--"}/100</p>
+    <div className="grid gap-3 rounded-md border border-line bg-paper p-3 lg:grid-cols-[150px_120px_1fr_100px] lg:items-center">
+      <p className="font-semibold">Story #{story.story_index || index + 1}</p>
+      <span className={`inline-flex w-fit rounded-full border px-2 py-1 text-xs font-semibold ${badgeClass(story.status)}`}>
+        {story.current_stage || story.status}
+      </span>
+      <div className="flex flex-wrap items-center gap-2 text-sm">
+        {steps.length ? steps.map((step, stepIndex) => (
+          <span key={`${step.stage}-${step.iteration}-${stepIndex}`} className="inline-flex items-center gap-2">
+            <span className={`rounded border px-2 py-1 ${badgeClass(step.status)}`}>{stepLabel(step)}</span>
+            {stepIndex < steps.length - 1 ? <span className="text-neutral-400">→</span> : null}
+          </span>
+        )) : <span className="text-neutral-500">Pending</span>}
       </div>
-      <div className="mt-2 h-2 rounded-full bg-white">
-        <div className="h-2 rounded-full bg-forest" style={{ width: `${Math.min(value ?? 0, 100)}%` }} />
-      </div>
+      <p className="text-sm text-neutral-500">{story.status}</p>
     </div>
   );
+}
+
+function Metric({ label, value }) {
+  return (
+    <div className="rounded-md border border-line bg-paper p-3">
+      <dt className="text-xs text-neutral-500">{label}</dt>
+      <dd className="mt-1 break-all text-sm font-semibold">{value}</dd>
+    </div>
+  );
+}
+
+function MetricInput({ label, value, onChange }) {
+  return (
+    <label className="block text-xs font-medium text-neutral-600">
+      {label}
+      <input
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+        inputMode="numeric"
+        className="mt-1 h-10 w-full rounded-md border border-line bg-white px-3 text-sm text-ink"
+      />
+    </label>
+  );
+}
+
+function titleCase(value) {
+  const text = String(value || "");
+  return text.charAt(0).toUpperCase() + text.slice(1);
 }

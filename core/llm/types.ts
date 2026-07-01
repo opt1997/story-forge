@@ -20,7 +20,7 @@ export type LLMResponse = {
   raw?: unknown;
 };
 
-export type LLMProviderName = "mock" | "openai" | "claude";
+export type LLMProviderName = "mock" | "openai" | "deepseek" | "claude";
 
 export interface LLMProvider {
   name: LLMProviderName;

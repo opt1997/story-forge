@@ -3,7 +3,7 @@ export type ArtifactMap = Record<string, string>;
 export type ExecutionConfig = {
   rootDir: string;
   storyDir: string;
-  provider: "mock" | "openai" | "claude";
+  provider: "mock" | "openai" | "deepseek" | "claude";
   modelByAgent: Record<string, string>;
   qaThreshold: number;
   maxRewriteRounds: number;

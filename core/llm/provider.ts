@@ -1,5 +1,6 @@
 import type { LLMGenerateInput, LLMProvider, LLMProviderName, LLMResponse } from "./types.ts";
 import { ClaudeProvider } from "./claude.ts";
+import { DeepSeekProvider } from "./deepseek.ts";
 import { OpenAIProvider } from "./openai.ts";
 
 export class MockLLMProvider implements LLMProvider {
@@ -29,6 +30,7 @@ export class MockLLMProvider implements LLMProvider {
 
 export function createLLMProvider(name: LLMProviderName = "mock"): LLMProvider {
   if (name === "openai") return new OpenAIProvider();
+  if (name === "deepseek") return new DeepSeekProvider();
   if (name === "claude") return new ClaudeProvider();
   return new MockLLMProvider();
 }

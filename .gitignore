@@ -10,3 +10,6 @@ stories/*
 !stories/.gitkeep
 metrics/runs.jsonl
 metrics/runs.sqlite
+metrics/story_forge.sqlite
+metrics/story_forge.sqlite-*
+metrics/dashboard_runs/

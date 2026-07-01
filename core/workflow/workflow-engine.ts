@@ -15,6 +15,8 @@ export type WorkflowRunOptions = {
   rootDir: string;
   runDate?: string;
   provider?: LLMProviderName;
+  progressFile?: string;
+  storyIndex?: number;
 };
 
 export type WorkflowRunSummary = {
@@ -63,6 +65,14 @@ export class WorkflowEngine {
     const storyId = `${runDate}-${slug}`;
     const storyDir = path.join(this.options.rootDir, "stories", runDate, slug);
     await mkdir(storyDir, { recursive: true });
+    await this.emitProgress({
+      type: "story",
+      story_id: storyId,
+      story_index: this.options.storyIndex ?? 1,
+      story_dir: relative(this.options.rootDir, storyDir),
+      status: "running",
+      timestamp: nowIso(),
+    });
 
     const artifacts: ArtifactMap = {};
     const config: ExecutionConfig = {
@@ -145,6 +155,15 @@ export class WorkflowEngine {
           input: { source: relative(this.options.rootDir, source) },
           output: { artifact: artifacts.final },
         });
+        await this.emitProgress({
+          type: "stage",
+          story_id: storyId,
+          stage: "final",
+          iteration: 1,
+          status: "success",
+          artifact_path: artifacts.final,
+          timestamp: nowIso(),
+        });
         status = "passed";
       } else {
         status = "needs_human_review";
@@ -155,6 +174,15 @@ export class WorkflowEngine {
       await this.writeState(statePath, stateMachine.snapshot(), rewriteRounds, status);
       await writeJson(tracePath, trace);
       await this.appendRunLog(storyId, "workflow", status, relative(this.options.rootDir, manifestPath), finalScore, "WorkflowEngine completed");
+      await this.emitProgress({
+        type: "story",
+        story_id: storyId,
+        story_index: this.options.storyIndex ?? 1,
+        story_dir: relative(this.options.rootDir, storyDir),
+        status,
+        final_score: finalScore,
+        timestamp: nowIso(),
+      });
 
       return {
         run_id: runId,
@@ -174,6 +202,15 @@ export class WorkflowEngine {
       await writeJson(tracePath, trace);
       await this.writeState(statePath, stateMachine.snapshot(), rewriteRounds, "failed", failureReason);
       await this.appendRunLog(storyId, "workflow", "failed", relative(this.options.rootDir, tracePath), finalScore, failureReason);
+      await this.emitProgress({
+        type: "story",
+        story_id: storyId,
+        story_index: this.options.storyIndex ?? 1,
+        story_dir: relative(this.options.rootDir, storyDir),
+        status: "failed",
+        failure_reason: failureReason,
+        timestamp: nowIso(),
+      });
       throw error;
     }
   }
@@ -214,12 +251,32 @@ export class WorkflowEngine {
   ): Promise<AgentRunResult> {
     stateMachine.set(stage, "running");
     await this.writeState(statePath, stateMachine.snapshot(), rewriteRounds, stage);
+    await this.emitProgress({
+      type: "stage",
+      story_id: context.storyId,
+      stage,
+      agent_name: agentName,
+      iteration: iterationFor(stage, agentName, rewriteRounds),
+      status: "running",
+      timestamp: nowIso(),
+    });
     trace.push({ step: agentName, status: "running", timestamp: nowIso(), input: snapshot(context.input) });
     try {
       const result = await this.runtime.run(this.registry.get(agentName), context);
       if (!result.artifactPath) throw new Error(`${agentName} did not produce artifactPath`);
       stateMachine.set(stage, result.status === "rewrite" ? "rewrite" : "success");
       trace.push({ step: agentName, status: result.status, timestamp: nowIso(), output: snapshot(result.output) });
+      await this.emitProgress({
+        type: "stage",
+        story_id: context.storyId,
+        stage,
+        agent_name: agentName,
+        iteration: iterationFor(stage, agentName, rewriteRounds),
+        status: result.status,
+        artifact_path: relative(this.options.rootDir, result.artifactPath),
+        score: result.score ?? null,
+        timestamp: nowIso(),
+      });
       await appendJsonLine(agentIoPath, {
         timestamp: nowIso(),
         story_id: context.storyId,
@@ -245,9 +302,24 @@ export class WorkflowEngine {
       const failureReason = error instanceof Error ? error.message : String(error);
       stateMachine.set(stage, "failed");
       trace.push({ step: agentName, status: "failed", timestamp: nowIso(), failureReason });
+      await this.emitProgress({
+        type: "stage",
+        story_id: context.storyId,
+        stage,
+        agent_name: agentName,
+        iteration: iterationFor(stage, agentName, rewriteRounds),
+        status: "failed",
+        failure_reason: failureReason,
+        timestamp: nowIso(),
+      });
       await this.writeState(statePath, stateMachine.snapshot(), rewriteRounds, "failed", failureReason);
       throw error;
     }
+  }
+
+  private async emitProgress(event: Record<string, unknown>): Promise<void> {
+    if (!this.options.progressFile) return;
+    await appendJsonLine(this.options.progressFile, event);
   }
 
   private async writeManifest(
@@ -370,7 +442,7 @@ async function uniqueSlug(rootDir: string, runDate: string, baseSlug: string): P
 }
 
 function normalizeProvider(value: string): LLMProviderName {
-  if (value === "mock" || value === "openai" || value === "claude") return value;
+  if (value === "mock" || value === "openai" || value === "deepseek" || value === "claude") return value;
   throw new Error(`Unsupported LLM provider: ${value}`);
 }
 
@@ -386,6 +458,20 @@ function modelMapFor(providerName: LLMProviderName): Record<string, string> {
       qa: qaModel,
       qa_after_rewrite: qaModel,
       rewrite: process.env.STORY_FORGE_OPENAI_REWRITE_MODEL ?? defaultModel,
+    };
+  }
+
+  if (providerName === "deepseek") {
+    const defaultModel = process.env.STORY_FORGE_DEEPSEEK_MODEL ?? "deepseek-v4-flash";
+    const qaModel = process.env.STORY_FORGE_DEEPSEEK_QA_MODEL ?? defaultModel;
+    return {
+      default: defaultModel,
+      idea: process.env.STORY_FORGE_DEEPSEEK_IDEA_MODEL ?? defaultModel,
+      outline: process.env.STORY_FORGE_DEEPSEEK_OUTLINE_MODEL ?? defaultModel,
+      writer: process.env.STORY_FORGE_DEEPSEEK_WRITER_MODEL ?? defaultModel,
+      qa: qaModel,
+      qa_after_rewrite: qaModel,
+      rewrite: process.env.STORY_FORGE_DEEPSEEK_REWRITE_MODEL ?? defaultModel,
     };
   }
 
@@ -424,6 +510,13 @@ function latestArtifactKey(artifacts: ArtifactMap, prefix: string): string | nul
 function latestArtifactRound(artifacts: ArtifactMap, prefix: string): number {
   const key = latestArtifactKey(artifacts, prefix);
   return key ? roundFromKey(key, prefix) : 0;
+}
+
+function iterationFor(stage: PipelineStage | "final", agentName: string, rewriteRounds: number): number {
+  if (stage === "writer") return 1;
+  if (stage === "rewrite") return rewriteRounds;
+  if (stage === "qa") return agentName === "qa_after_rewrite" ? rewriteRounds + 1 : 1;
+  return 1;
 }
 
 function roundFromKey(key: string, prefix: string): number {

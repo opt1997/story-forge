@@ -5,6 +5,7 @@
   "scripts": {
     "exec:mock": "node scripts/run_ai_execution.js --provider=mock",
     "exec:openai": "node scripts/run_ai_execution.js --provider=openai",
+    "exec:deepseek": "node scripts/run_ai_execution.js --provider=deepseek",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
