@@ -1,0 +1,47 @@
+{
+  "date": "",
+  "status": "pending_story_manager_generation",
+  "target_story_count": 0,
+  "history_windows": {
+    "recent_7_days": {
+      "genres_seen": [],
+      "repeated_genres": [],
+      "high_quality_genres": [],
+      "missing_genres": [],
+      "notes": ""
+    },
+    "recent_30_days": {
+      "genres_seen": [],
+      "repeated_genres": [],
+      "high_quality_genres": [],
+      "low_quality_genres": [],
+      "missing_genres": [],
+      "notes": ""
+    }
+  },
+  "planned_genres": [],
+  "avoid_genres": [],
+  "improvement_targets": [],
+  "topic_candidates": [],
+  "diversity_filter": {
+    "rules_applied": [],
+    "kept_candidate_ids": [],
+    "removed_candidates": []
+  },
+  "ranking": {
+    "scoring_dimensions": [
+      "innovation",
+      "conflict",
+      "twist",
+      "platform_fit",
+      "hook",
+      "emotion",
+      "diversity_bonus",
+      "repetition_penalty"
+    ],
+    "ranked_candidates": []
+  },
+  "selected_top_n": [],
+  "reasons": [],
+  "updated_at": ""
+}

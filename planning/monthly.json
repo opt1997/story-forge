@@ -1,0 +1,15 @@
+{
+  "month": "",
+  "status": "pending_story_manager_generation",
+  "content_positioning": "",
+  "pillar_genres": [],
+  "experimental_genres": [],
+  "quality_benchmarks": {
+    "target_average_score": 90,
+    "minimum_pass_score": 90
+  },
+  "fatigue_watchlist": [],
+  "long_term_gaps": [],
+  "platform_assumptions": [],
+  "updated_at": ""
+}

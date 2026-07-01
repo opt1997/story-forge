@@ -1,0 +1,52 @@
+﻿{
+  "story_id": "",
+  "date": "",
+  "slug": "",
+  "title": "",
+  "genre": "",
+  "status": "idea_pending | outlining | writing | qa_v1 | rewrite_v1 | qa_v2 | rewrite_v2 | qa_v3 | passed | needs_human_review | abandoned",
+  "current_draft": "",
+  "current_qa": "",
+  "rewrite_round": 0,
+  "qa_round": 0,
+  "final_score": null,
+  "pass_threshold": 90,
+  "files": {
+    "idea": "",
+    "outline": "",
+    "draft_v1": "",
+    "qa_v1": "",
+    "draft_v2": "",
+    "qa_v2": "",
+    "draft_v3": "",
+    "qa_v3": "",
+    "final": ""
+  },
+  "prompt_versions": {
+    "style": "",
+    "scoring": "",
+    "idea": "",
+    "outline": "",
+    "writer": "",
+    "qa": "",
+    "rewrite": ""
+  },
+  "agent_versions": {
+    "story_manager": "",
+    "idea": "",
+    "outline": "",
+    "writer": "",
+    "qa": "",
+    "rewrite": "",
+    "recorder": "",
+    "evolver": ""
+  },
+  "metrics": {
+    "total_cost_usd": 0,
+    "total_latency_sec": 0,
+    "total_input_tokens": 0,
+    "total_output_tokens": 0
+  },
+  "created_at": "",
+  "updated_at": ""
+}

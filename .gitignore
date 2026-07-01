@@ -1,0 +1,12 @@
+node_modules/
+.pnpm-store/
+.next/
+out/
+*.pyc
+__pycache__/
+.env
+.env.local
+stories/*
+!stories/.gitkeep
+metrics/runs.jsonl
+metrics/runs.sqlite

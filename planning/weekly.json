@@ -1,0 +1,13 @@
+{
+  "week_start": "",
+  "week_end": "",
+  "status": "pending_story_manager_generation",
+  "target_story_count": 0,
+  "target_genre_distribution": [],
+  "rotation_rules": [],
+  "quality_goals": [],
+  "avoid_patterns": [],
+  "experiments": [],
+  "lessons_from_previous_week": [],
+  "updated_at": ""
+}
