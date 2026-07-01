@@ -2,7 +2,7 @@ import { appendFile, copyFile, mkdir, readFile, writeFile } from "node:fs/promis
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { AgentRuntime } from "../runtime/agent-runtime.ts";
-import { createMockAgentRegistry } from "../runtime/agent-registry.ts";
+import { createAgentRegistry } from "../runtime/agent-registry.ts";
 import type { AgentRunResult, ArtifactMap, ExecutionConfig, ExecutionContext } from "../runtime/execution-context.ts";
 import { createLLMProvider } from "../llm/provider.ts";
 import type { LLMProviderName } from "../llm/types.ts";
@@ -41,14 +41,16 @@ type TraceEvent = {
 
 export class WorkflowEngine {
   private readonly options: WorkflowRunOptions;
+  private readonly providerName: LLMProviderName;
   private readonly registry;
   private readonly provider;
   private readonly runtime;
 
   constructor(options: WorkflowRunOptions) {
     this.options = options;
-    this.registry = createMockAgentRegistry();
-    this.provider = createLLMProvider(this.options.provider ?? "mock");
+    this.providerName = normalizeProvider(this.options.provider ?? process.env.STORY_FORGE_LLM_PROVIDER ?? "mock");
+    this.registry = createAgentRegistry(this.providerName);
+    this.provider = createLLMProvider(this.providerName);
     this.runtime = new AgentRuntime(this.provider);
   }
 
@@ -66,15 +68,8 @@ export class WorkflowEngine {
     const config: ExecutionConfig = {
       rootDir: this.options.rootDir,
       storyDir,
-      provider: this.options.provider ?? "mock",
-      modelByAgent: {
-        idea: "mock-idea-model",
-        outline: "mock-outline-model",
-        writer: "mock-writer-model",
-        qa: "mock-qa-model",
-        qa_after_rewrite: "mock-qa-model",
-        rewrite: "mock-rewrite-model",
-      },
+      provider: this.providerName,
+      modelByAgent: modelMapFor(this.providerName),
       qaThreshold: 85,
       maxRewriteRounds: 3,
     };
@@ -113,6 +108,8 @@ export class WorkflowEngine {
 
       const qa1 = await this.runStage("qa", "qa", context, stateMachine, trace, agentIoPath, statePath, rewriteRounds);
       artifacts.qa_v1 = relative(this.options.rootDir, qa1.artifactPath);
+      context.input.currentQa = artifacts.qa_v1;
+      context.input.qa = qa1.output;
       finalScore = qa1.score ?? null;
 
       while ((finalScore ?? 0) < config.qaThreshold && rewriteRounds < config.maxRewriteRounds) {
@@ -128,6 +125,8 @@ export class WorkflowEngine {
         const qaAfterRewrite = await this.runStage("qa", "qa_after_rewrite", context, stateMachine, trace, agentIoPath, statePath, rewriteRounds);
         if (qaAfterRewrite.artifactKey && qaAfterRewrite.artifactPath) {
           artifacts[qaAfterRewrite.artifactKey] = relative(this.options.rootDir, qaAfterRewrite.artifactPath);
+          context.input.currentQa = artifacts[qaAfterRewrite.artifactKey];
+          context.input.qa = qaAfterRewrite.output;
         }
         finalScore = qaAfterRewrite.score ?? null;
       }
@@ -152,7 +151,7 @@ export class WorkflowEngine {
         stateMachine.set("final", "failed");
       }
 
-      await this.writeManifest(manifestPath, storyId, runDate, slug, plan, artifacts, status, finalScore, rewriteRounds);
+      await this.writeManifest(manifestPath, storyId, runDate, slug, plan, context, artifacts, status, finalScore, rewriteRounds);
       await this.writeState(statePath, stateMachine.snapshot(), rewriteRounds, status);
       await writeJson(tracePath, trace);
       await this.appendRunLog(storyId, "workflow", status, relative(this.options.rootDir, manifestPath), finalScore, "WorkflowEngine completed");
@@ -235,7 +234,10 @@ export class WorkflowEngine {
         result.status === "failed" ? "failed" : result.status === "rewrite" ? "rewrite" : "pass",
         relative(this.options.rootDir, result.artifactPath),
         result.score,
-        "AgentRuntime mock execution",
+        `AgentRuntime ${this.providerName} execution`,
+        result.usage?.inputTokens,
+        result.usage?.outputTokens,
+        context.config.modelByAgent[agentName] ?? context.config.modelByAgent.default,
       );
       await this.writeState(statePath, stateMachine.snapshot(), rewriteRounds, stage);
       return result;
@@ -254,22 +256,26 @@ export class WorkflowEngine {
     runDate: string,
     slug: string,
     plan: any,
+    context: ExecutionContext,
     artifacts: ArtifactMap,
     status: WorkflowRunSummary["status"],
     finalScore: number | null,
     rewriteRounds: number,
   ): Promise<void> {
+    const idea = context.input.idea && typeof context.input.idea === "object" ? (context.input.idea as Record<string, unknown>) : {};
+    const currentDraftKey = latestArtifactKey(artifacts, "draft_v");
+    const currentQaKey = latestArtifactKey(artifacts, "qa_v");
     await writeJson(manifestPath, {
       story_id: storyId,
       date: runDate,
       slug,
-      title: "真实执行架构冒烟测试",
-      genre: "execution_architecture_mock",
+      title: String(idea.title ?? plan.selected_top_n[0]?.working_title ?? "真实执行架构冒烟测试"),
+      genre: String(idea.genre ?? plan.selected_top_n[0]?.genre ?? "execution_architecture"),
       status,
-      current_draft: artifacts.draft_v2 ?? artifacts.draft_v1 ?? "",
-      current_qa: artifacts.qa_v2 ?? artifacts.qa_v1 ?? "",
+      current_draft: currentDraftKey ? artifacts[currentDraftKey] : "",
+      current_qa: currentQaKey ? artifacts[currentQaKey] : "",
       rewrite_round: rewriteRounds,
-      qa_round: artifacts.qa_v2 ? 2 : artifacts.qa_v1 ? 1 : 0,
+      qa_round: latestArtifactRound(artifacts, "qa_v"),
       final_score: finalScore,
       pass_threshold: 85,
       files: {
@@ -293,12 +299,14 @@ export class WorkflowEngine {
         scoring: "v1",
       },
       agent_versions: {
-        runtime: "real-exec-mock-v1",
-        workflow_engine: "real-exec-mock-v1",
-        llm_provider: "mock",
+        runtime: "real-exec-v1",
+        workflow_engine: "real-exec-v1",
+        llm_provider: this.providerName,
+        model_by_agent: context.config.modelByAgent,
       },
       metrics: {
         total_cost_usd: 0,
+        pricing_note: "Token usage is recorded in metrics/runs.jsonl. Cost calculation is not enabled yet.",
       },
       created_at: nowIso(),
       updated_at: nowIso(),
@@ -328,16 +336,19 @@ export class WorkflowEngine {
     artifactPath: string,
     score?: number | null,
     notes?: string,
+    inputTokens?: number,
+    outputTokens?: number,
+    model?: string,
   ): Promise<void> {
     await appendJsonLine(path.join(this.options.rootDir, "metrics", "runs.jsonl"), {
       story_id: storyId,
       stage,
       agent_name: stage === "workflow" ? "workflow-engine.ts" : `${stage}.agent`,
-      model: "mock",
+      model: model ?? this.providerName,
       prompt_path: null,
       prompt_version: null,
-      input_tokens: 0,
-      output_tokens: 0,
+      input_tokens: inputTokens ?? 0,
+      output_tokens: outputTokens ?? 0,
       duration_seconds: 0,
       cost_usd: 0,
       timestamp: nowIso(),
@@ -356,6 +367,68 @@ async function uniqueSlug(rootDir: string, runDate: string, baseSlug: string): P
     if (!existsSync(path.join(dayDir, slug))) return slug;
   }
   throw new Error("Unable to allocate unique story slug");
+}
+
+function normalizeProvider(value: string): LLMProviderName {
+  if (value === "mock" || value === "openai" || value === "claude") return value;
+  throw new Error(`Unsupported LLM provider: ${value}`);
+}
+
+function modelMapFor(providerName: LLMProviderName): Record<string, string> {
+  if (providerName === "openai") {
+    const defaultModel = process.env.STORY_FORGE_OPENAI_MODEL ?? "gpt-5.5";
+    const qaModel = process.env.STORY_FORGE_OPENAI_QA_MODEL ?? defaultModel;
+    return {
+      default: defaultModel,
+      idea: process.env.STORY_FORGE_OPENAI_IDEA_MODEL ?? defaultModel,
+      outline: process.env.STORY_FORGE_OPENAI_OUTLINE_MODEL ?? defaultModel,
+      writer: process.env.STORY_FORGE_OPENAI_WRITER_MODEL ?? defaultModel,
+      qa: qaModel,
+      qa_after_rewrite: qaModel,
+      rewrite: process.env.STORY_FORGE_OPENAI_REWRITE_MODEL ?? defaultModel,
+    };
+  }
+
+  if (providerName === "claude") {
+    const defaultModel = process.env.STORY_FORGE_CLAUDE_MODEL ?? "claude-provider-placeholder";
+    return {
+      default: defaultModel,
+      idea: defaultModel,
+      outline: defaultModel,
+      writer: defaultModel,
+      qa: defaultModel,
+      qa_after_rewrite: defaultModel,
+      rewrite: defaultModel,
+    };
+  }
+
+  return {
+    default: "mock-model",
+    idea: "mock-idea-model",
+    outline: "mock-outline-model",
+    writer: "mock-writer-model",
+    qa: "mock-qa-model",
+    qa_after_rewrite: "mock-qa-model",
+    rewrite: "mock-rewrite-model",
+  };
+}
+
+function latestArtifactKey(artifacts: ArtifactMap, prefix: string): string | null {
+  const matches = Object.keys(artifacts)
+    .map((key) => ({ key, round: roundFromKey(key, prefix) }))
+    .filter((item) => item.round > 0)
+    .sort((a, b) => b.round - a.round);
+  return matches[0]?.key ?? null;
+}
+
+function latestArtifactRound(artifacts: ArtifactMap, prefix: string): number {
+  const key = latestArtifactKey(artifacts, prefix);
+  return key ? roundFromKey(key, prefix) : 0;
+}
+
+function roundFromKey(key: string, prefix: string): number {
+  const match = key.match(new RegExp(`^${prefix}(\\d+)$`));
+  return match ? Number(match[1]) : 0;
 }
 
 async function writeJson(filePath: string, value: unknown): Promise<void> {

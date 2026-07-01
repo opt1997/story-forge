@@ -102,12 +102,13 @@ function runCommand(command, args, cwd) {
 
 async function runWorkflow(root) {
   const date = shanghaiDate();
+  const provider = process.env.STORY_FORGE_LLM_PROVIDER || "mock";
   const aiExecutionScript = path.join(root, "scripts", "run_ai_execution.js");
   const aiErrors = [];
 
   for (const command of nodeCandidates()) {
     try {
-      const stdout = await runCommand(command, [aiExecutionScript, `--date=${date}`, "--provider=mock"], root);
+      const stdout = await runCommand(command, [aiExecutionScript, `--date=${date}`, `--provider=${provider}`], root);
       return JSON.parse(stdout);
     } catch (error) {
       aiErrors.push(`${command}: ${error.message}`);
@@ -203,7 +204,7 @@ export async function POST() {
         recorder: "success",
         health_check: "success",
       },
-      data_source: "Real AI Execution Architecture mock workflow with M3.1 mock health report",
+      data_source: `Real AI Execution Architecture ${process.env.STORY_FORGE_LLM_PROVIDER || "mock"} workflow with M3.1 mock health report`,
     });
   } catch (error) {
     return NextResponse.json(

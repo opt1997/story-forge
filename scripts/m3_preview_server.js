@@ -101,11 +101,12 @@ function runCommand(command, args) {
 
 async function runWorkflow() {
   const date = shanghaiDate();
+  const provider = process.env.STORY_FORGE_LLM_PROVIDER || "mock";
   const aiExecutionScript = path.join(root, "scripts", "run_ai_execution.js");
   const aiErrors = [];
   for (const command of nodeCandidates()) {
     try {
-      const stdout = await runCommand(command, [aiExecutionScript, `--date=${date}`, "--provider=mock"]);
+      const stdout = await runCommand(command, [aiExecutionScript, `--date=${date}`, `--provider=${provider}`]);
       return JSON.parse(stdout);
     } catch (error) {
       aiErrors.push(`${command}: ${error.message}`);
