@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Story Forge UX Redesign Prototype</title>
+  <style>
+    :root {
+      --ink: #171717;
+      --ink-700: #2b3038;
+      --muted: #596171;
+      --paper: #f7f5ef;
+      --paper-50: #fbfaf7;
+      --surface: #ffffff;
+      --line: #ded8cc;
+      --line-soft: #ebe6dc;
+      --forest: #1f6b57;
+      --forest-soft: #e9f7ef;
+      --amber: #b7791f;
+      --amber-soft: #fff7e6;
+      --coral: #c65f46;
+      --coral-soft: #fff1ed;
+      --blue: #2f6feb;
+      --blue-soft: #eaf2ff;
+      --gray-soft: #f3f4f6;
+      font-family: Inter, "Microsoft YaHei", "PingFang SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #e9e3d7;
+      color: var(--ink);
+    }
+
+    .board {
+      width: 2200px;
+      min-height: 1240px;
+      padding: 48px;
+      position: relative;
+    }
+
+    .screen,
+    .side-frame {
+      background: var(--paper);
+      border: 1px solid rgba(43, 48, 56, 0.08);
+      box-shadow: 0 24px 60px rgba(23, 23, 23, 0.12);
+      overflow: hidden;
+      position: absolute;
+    }
+
+    .screen {
+      width: 1440px;
+      height: 1024px;
+      left: 48px;
+      top: 48px;
+    }
+
+    .sidebar {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 220px;
+      background: var(--ink);
+      color: white;
+      padding: 24px 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .brand-mark,
+    .icon-box {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--forest);
+      font-weight: 800;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      margin-top: 3px;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 11px;
+    }
+
+    .nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .nav-item {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 12px;
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-item.active {
+      background: var(--forest);
+      color: white;
+    }
+
+    .icon-box {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 11px;
+    }
+
+    .sidebar-footer {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 22px;
+      padding: 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.07);
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .topbar {
+      position: absolute;
+      left: 220px;
+      top: 0;
+      right: 0;
+      height: 72px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line-soft);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px 0 28px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      color: var(--forest);
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 2px 0 0;
+      font-size: 26px;
+      line-height: 34px;
+      letter-spacing: 0;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .button {
+      height: 40px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 15px;
+      border: 1px solid transparent;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .button.primary {
+      background: var(--forest);
+      color: white;
+    }
+
+    .button.secondary {
+      background: white;
+      border-color: var(--line);
+      color: var(--ink);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .workspace {
+      position: absolute;
+      left: 220px;
+      top: 72px;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: 840px 344px;
+      gap: 20px;
+      padding: 22px;
+    }
+
+    .main-column,
+    .detail-panel {
+      min-width: 0;
+    }
+
+    .main-column {
+      display: grid;
+      grid-template-rows: 206px 246px 246px 194px;
+      gap: 16px;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(23, 23, 23, 0.06);
+      overflow: hidden;
+    }
+
+    .panel-head {
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .panel-title {
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .panel-note {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 14px 16px 0;
+    }
+
+    .metric {
+      height: 86px;
+      padding: 12px;
+      border: 1px solid var(--line-soft);
+      border-radius: 8px;
+      background: var(--paper-50);
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .metric-value {
+      margin-top: 6px;
+      font-size: 23px;
+      line-height: 30px;
+      font-weight: 800;
+    }
+
+    .metric-hint {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .strategy-body {
+      display: grid;
+      grid-template-columns: 1fr 270px;
+      gap: 14px;
+      padding: 12px 16px 16px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag,
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      border-radius: 999px;
+      padding: 0 10px;
+      font-size: 11px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .tag {
+      color: var(--ink-700);
+      background: var(--gray-soft);
+      border-color: var(--line-soft);
+    }
+
+    .badge.success {
+      color: var(--forest);
+      background: var(--forest-soft);
+      border-color: rgba(31, 107, 87, 0.22);
+    }
+
+    .badge.running {
+      color: var(--amber);
+      background: var(--amber-soft);
+      border-color: rgba(183, 121, 31, 0.24);
+    }
+
+    .badge.failed {
+      color: var(--coral);
+      background: var(--coral-soft);
+      border-color: rgba(198, 95, 70, 0.24);
+    }
+
+    .badge.info {
+      color: var(--blue);
+      background: var(--blue-soft);
+      border-color: rgba(47, 111, 235, 0.22);
+    }
+
+    .funnel {
+      height: 92px;
+      border-radius: 8px;
+      background: var(--paper-50);
+      border: 1px solid var(--line-soft);
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 76px 1fr 36px;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .bar-track {
+      height: 8px;
+      background: #ececec;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--forest);
+    }
+
+    .bar-fill.amber {
+      background: var(--amber);
+    }
+
+    .bar-fill.blue {
+      background: var(--blue);
+    }
+
+    .rows {
+      display: grid;
+      gap: 8px;
+      padding: 12px 14px 14px;
+    }
+
+    .candidate-row,
+    .story-row,
+    .library-row {
+      display: grid;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--line-soft);
+      background: white;
+      border-radius: 8px;
+    }
+
+    .candidate-row {
+      grid-template-columns: 46px 1fr 150px 88px;
+      min-height: 58px;
+      padding: 10px 12px;
+    }
+
+    .rank {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .row-title {
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 18px;
+    }
+
+    .row-meta {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 16px;
+    }
+
+    .score {
+      color: var(--ink-700);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 17px;
+    }
+
+    .story-row {
+      grid-template-columns: 86px 1fr 304px 78px;
+      min-height: 64px;
+      padding: 10px 12px;
+    }
+
+    .step-line {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .step {
+      min-width: 42px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      border: 1px solid var(--line-soft);
+      background: var(--gray-soft);
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .step.done {
+      background: var(--forest-soft);
+      color: var(--forest);
+      border-color: rgba(31, 107, 87, 0.24);
+    }
+
+    .step.run {
+      background: var(--amber-soft);
+      color: var(--amber);
+      border-color: rgba(183, 121, 31, 0.24);
+    }
+
+    .library-row {
+      grid-template-columns: 1fr 104px 112px 84px 72px;
+      min-height: 54px;
+      padding: 8px 12px;
+    }
+
+    .input-chip {
+      height: 34px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      color: var(--ink);
+      font-size: 12px;
+    }
+
+    .detail-panel {
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(23, 23, 23, 0.06);
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .detail-hero {
+      border-radius: 8px;
+      background: var(--paper-50);
+      border: 1px solid var(--line-soft);
+      padding: 16px;
+    }
+
+    .detail-title {
+      margin-top: 10px;
+      font-size: 18px;
+      line-height: 25px;
+      font-weight: 900;
+    }
+
+    .detail-text {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 19px;
+    }
+
+    .score-ring {
+      width: 86px;
+      height: 86px;
+      border-radius: 999px;
+      border: 10px solid var(--forest);
+      display: grid;
+      place-items: center;
+      background: white;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .detail-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .mini-card {
+      border-radius: 8px;
+      border: 1px solid var(--line-soft);
+      padding: 10px;
+      min-height: 64px;
+    }
+
+    .file-list,
+    .log-list {
+      margin-top: 16px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .file-item,
+    .log-item {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      border-radius: 8px;
+      background: var(--paper-50);
+      border: 1px solid var(--line-soft);
+      font-size: 11px;
+      color: var(--ink-700);
+    }
+
+    .section-label {
+      margin-top: 18px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .preview {
+      margin-top: 16px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: rgba(255, 255, 255, 0.78);
+      padding: 14px;
+      font-size: 11px;
+      line-height: 18px;
+    }
+
+    .side-frame {
+      width: 420px;
+      min-height: 320px;
+      left: 1532px;
+      border-radius: 8px;
+      padding: 24px;
+      background: white;
+    }
+
+    .start-frame {
+      top: 48px;
+    }
+
+    .empty-frame {
+      top: 430px;
+    }
+
+    .frame-caption {
+      position: absolute;
+      left: 1532px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .caption-start {
+      top: 18px;
+    }
+
+    .caption-empty {
+      top: 400px;
+    }
+
+    .dialog-title {
+      font-size: 19px;
+      font-weight: 900;
+    }
+
+    .field {
+      margin-top: 18px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .segmented {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+    }
+
+    .segment {
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .segment.active {
+      background: var(--forest);
+      color: white;
+      border-color: var(--forest);
+    }
+
+    .dialog-actions {
+      margin-top: 24px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .empty-illustration {
+      width: 92px;
+      height: 92px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--paper-50);
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="board">
+    <section class="screen" aria-label="Desktop main workbench prototype">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">SF</div>
+          <div>
+            <div class="brand-title">Story Forge</div>
+            <div class="brand-sub">创作运营台</div>
+          </div>
+        </div>
+        <nav class="nav">
+          <div class="nav-item active"><span class="icon-box">今</span><span>今日创作</span></div>
+          <div class="nav-item"><span class="icon-box">题</span><span>选题池</span></div>
+          <div class="nav-item"><span class="icon-box">流</span><span>生产流水线</span></div>
+          <div class="nav-item"><span class="icon-box">库</span><span>作品库</span></div>
+          <div class="nav-item"><span class="icon-box">数</span><span>Metrics</span></div>
+          <div class="nav-item"><span class="icon-box">版</span><span>Prompt 版本</span></div>
+        </nav>
+        <div class="sidebar-footer">
+          Provider: mock<br />
+          SQLite: story_forge.sqlite<br />
+          Last sync: 14:32
+        </div>
+      </aside>
+
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">Story Production Console</div>
+          <h1>今日创作工作台</h1>
+        </div>
+        <div class="top-actions">
+          <span class="badge running"><span class="dot"></span> Active run</span>
+          <button class="button secondary">刷新</button>
+          <button class="button primary">开始今天创作</button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <div class="main-column">
+          <section class="panel">
+            <div class="panel-head">
+              <div class="panel-title">今日创作策略</div>
+              <div class="panel-note">基于最近 7/30 天历史与规划资料</div>
+            </div>
+            <div class="metrics">
+              <div class="metric"><div class="metric-label">计划数量</div><div class="metric-value">3</div><div class="metric-hint">Top N selected</div></div>
+              <div class="metric"><div class="metric-label">候选池</div><div class="metric-value">48</div><div class="metric-hint">30-50 合规</div></div>
+              <div class="metric"><div class="metric-label">过滤移除</div><div class="metric-value">12</div><div class="metric-hint">重复 / 疲劳</div></div>
+              <div class="metric"><div class="metric-label">QA 阈值</div><div class="metric-value">90</div><div class="metric-hint">story_manifest</div></div>
+            </div>
+            <div class="strategy-body">
+              <div>
+                <div class="panel-note" style="margin-bottom: 8px;">今日提升目标</div>
+                <div class="tags">
+                  <span class="tag">开篇钩子更快</span>
+                  <span class="tag">反转提前埋线</span>
+                  <span class="tag">控制同质化冲突</span>
+                  <span class="tag">强化情绪回报</span>
+                  <span class="tag">避免连续复仇题材</span>
+                </div>
+              </div>
+              <div class="funnel">
+                <div class="bar-row"><span>候选生成</span><div class="bar-track"><div class="bar-fill blue" style="width: 96%;"></div></div><strong>48</strong></div>
+                <div class="bar-row"><span>多样过滤</span><div class="bar-track"><div class="bar-fill amber" style="width: 72%;"></div></div><strong>36</strong></div>
+                <div class="bar-row"><span>进入生产</span><div class="bar-track"><div class="bar-fill" style="width: 18%;"></div></div><strong>3</strong></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <div class="panel-title">Top N 选题队列</div>
+              <div class="panel-note">创新 / 冲突 / 反转 / 平台适配 / 爽点 / 情绪</div>
+            </div>
+            <div class="rows">
+              <div class="candidate-row">
+                <div class="rank">#1</div>
+                <div><div class="row-title">替身女配接管豪门直播间</div><div class="row-meta">都市逆袭 / 高冲突 / 直播反转</div></div>
+                <div class="score">创新 92<br />爽点 89</div>
+                <span class="badge success">低重复</span>
+              </div>
+              <div class="candidate-row">
+                <div class="rank">#2</div>
+                <div><div class="row-title">末班地铁里的时间审判</div><div class="row-meta">悬疑奇幻 / 道德选择 / 强情绪</div></div>
+                <div class="score">冲突 91<br />反转 94</div>
+                <span class="badge info">实验题材</span>
+              </div>
+              <div class="candidate-row">
+                <div class="rank">#3</div>
+                <div><div class="row-title">被退婚后我成了规则制定者</div><div class="row-meta">女频爽文 / 身份反转 / 平台适配</div></div>
+                <div class="score">适配 95<br />情绪 88</div>
+                <span class="badge running">轻疲劳</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <div class="panel-title">生产流水线</div>
+              <div class="panel-note">Idea -> Outline -> Writer -> QA -> Rewrite -> Final</div>
+            </div>
+            <div class="rows">
+              <div class="story-row">
+                <strong>Story #1</strong>
+                <div><div class="row-title">替身女配接管豪门直播间</div><div class="row-meta">当前 QA(2)，分数已达阈值</div></div>
+                <div class="step-line"><span class="step done">Idea</span><span class="step done">Outline</span><span class="step done">Writer</span><span class="step run">QA(2)</span><span class="step done">Final</span></div>
+                <span class="badge success">90/90</span>
+              </div>
+              <div class="story-row">
+                <strong>Story #2</strong>
+                <div><div class="row-title">末班地铁里的时间审判</div><div class="row-meta">Writer 完成，等待 QA(1)</div></div>
+                <div class="step-line"><span class="step done">Idea</span><span class="step done">Outline</span><span class="step done">Writer</span><span class="step run">QA</span><span class="step">Final</span></div>
+                <span class="badge running">running</span>
+              </div>
+              <div class="story-row">
+                <strong>Story #3</strong>
+                <div><div class="row-title">被退婚后我成了规则制定者</div><div class="row-meta">QA(1)=82，进入 Rewrite(1)</div></div>
+                <div class="step-line"><span class="step done">Idea</span><span class="step done">Outline</span><span class="step done">Writer</span><span class="step run">Rewrite</span><span class="step">Final</span></div>
+                <span class="badge running">rewrite</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <div class="panel-title">作品库与指标回填</div>
+              <div class="panel-note">完成后录入阅读与流失数据</div>
+            </div>
+            <div class="rows">
+              <div class="library-row">
+                <div><div class="row-title">替身女配接管豪门直播间</div><div class="row-meta">2026-07-01 14:31 / final.md 已生成</div></div>
+                <div class="input-chip"><span>read</span><strong>12840</strong></div>
+                <div class="input-chip"><span>drop</span><strong>618</strong></div>
+                <span class="badge success">done</span>
+                <button class="button secondary" style="height: 34px;">保存</button>
+              </div>
+              <div class="library-row">
+                <div><div class="row-title">旧王城里的夜班修表师</div><div class="row-meta">2026-06-30 19:24 / 需要复盘低开篇分</div></div>
+                <div class="input-chip"><span>read</span><strong>7420</strong></div>
+                <div class="input-chip"><span>drop</span><strong>1204</strong></div>
+                <span class="badge failed">drop high</span>
+                <button class="button secondary" style="height: 34px;">保存</button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="detail-panel">
+          <div class="detail-hero">
+            <span class="badge success">当前选中 / Passed</span>
+            <div style="display: flex; gap: 16px; align-items: center; margin-top: 14px;">
+              <div class="score-ring">90</div>
+              <div>
+                <div class="detail-title">替身女配接管豪门直播间</div>
+                <div class="detail-text">直播间的每一次弹幕都在推动真实身份暴露，主角必须在公开审判里夺回叙事权。</div>
+              </div>
+            </div>
+          </div>
+          <div class="detail-grid">
+            <div class="mini-card"><div class="metric-label">rewrite_round</div><div class="metric-value" style="font-size: 20px;">1</div></div>
+            <div class="mini-card"><div class="metric-label">qa_round</div><div class="metric-value" style="font-size: 20px;">2</div></div>
+          </div>
+          <div class="section-label">文件状态</div>
+          <div class="file-list">
+            <div class="file-item"><span>idea.json</span><span class="badge success">ready</span></div>
+            <div class="file-item"><span>outline.json</span><span class="badge success">ready</span></div>
+            <div class="file-item"><span>draft_v2.md</span><span class="badge success">current</span></div>
+            <div class="file-item"><span>final.md</span><span class="badge success">approved</span></div>
+          </div>
+          <div class="section-label">Pipeline logs</div>
+          <div class="log-list">
+            <div class="log-item"><span>Idea</span><strong>done</strong></div>
+            <div class="log-item"><span>QA(1)</span><strong>rewrite</strong></div>
+            <div class="log-item"><span>Rewrite(1)</span><strong>done</strong></div>
+            <div class="log-item"><span>QA(2)</span><strong>pass</strong></div>
+          </div>
+          <div class="preview">
+            final.md preview<br />
+            她看着直播间里滚动的名字，第一次没有关掉镜头。豪门想让她做替身，而她要让所有人亲眼看见谁才是真正的主角。
+          </div>
+          <button class="button primary" style="width: 100%; margin-top: 14px;">预览 final.md</button>
+        </aside>
+      </main>
+    </section>
+
+    <div class="frame-caption caption-start">Start Dialog</div>
+    <section class="side-frame start-frame">
+      <div class="dialog-title">开始今天创作</div>
+      <div class="detail-text">Story Manager 将先读取历史、生成今日策略，再选择 Top N 进入正式生产流程。</div>
+      <div class="field">
+        <label>本次生成故事数量</label>
+        <div class="segmented">
+          <div class="segment">1</div>
+          <div class="segment">2</div>
+          <div class="segment active">3</div>
+          <div class="segment">4</div>
+          <div class="segment">5</div>
+        </div>
+      </div>
+      <div class="field">
+        <label>运行模式</label>
+        <div class="input-chip" style="height: 42px;"><span>Provider</span><strong>mock</strong></div>
+      </div>
+      <div class="dialog-actions">
+        <button class="button secondary">取消</button>
+        <button class="button primary">确认开始</button>
+      </div>
+    </section>
+
+    <div class="frame-caption caption-empty">Empty State</div>
+    <section class="side-frame empty-frame">
+      <div class="empty-illustration">
+        <div class="brand-mark">SF</div>
+      </div>
+      <div class="dialog-title">还没有今日运行</div>
+      <div class="detail-text">点击顶部的“开始今天创作”，Story Manager 会自动完成历史分析、选题策划、排序和故事生产。</div>
+      <div style="display: grid; gap: 8px; margin-top: 20px;">
+        <div class="file-item"><span>active_run</span><span class="badge info">idle</span></div>
+        <div class="file-item"><span>pipeline</span><span class="badge running">waiting</span></div>
+        <div class="file-item"><span>completed stories</span><span class="badge failed">empty</span></div>
+      </div>
+      <button class="button primary" style="width: 100%; margin-top: 22px;">开始今天创作</button>
+    </section>
+  </div>
+</body>
+</html>

@@ -266,6 +266,8 @@ function realIdeaSystem(): string {
     "You are the Story Forge Idea Agent.",
     "Return only valid JSON. Do not wrap JSON in markdown.",
     "Create one high-potential Chinese web fiction idea from the provided Story Manager plan candidate.",
+    "The title must be unique and specific. Include a concrete scene, object, timestamp, evidence, or decisive action.",
+    "Do not make title variants by appending 反击版, 反差版, 上, 下, 续, or numbers.",
   ].join("\n");
 }
 
@@ -281,6 +283,7 @@ function realWriterSystem(): string {
   return [
     "You are the Story Forge Writer Agent.",
     "Write the draft in Chinese markdown.",
+    "Optimize for commercial heat, retention, fast payoff, and monetizable web-fiction hooks. Do not optimize for literary prestige.",
     "Return markdown content only. Do not include analysis or code fences.",
   ].join("\n");
 }
@@ -290,6 +293,7 @@ function realQaSystem(): string {
     "You are the Story Forge QA Agent.",
     "Return only valid JSON. Do not wrap JSON in markdown.",
     "Evaluate the draft strictly. Use status PASS when total score is at least the pass threshold, otherwise REWRITE.",
+    "Calibrate scoring toward reader retention and commercial feedback signals when they are provided.",
   ].join("\n");
 }
 
@@ -306,6 +310,7 @@ function realIdeaPrompt(context: ExecutionContext): string {
     {
       story_id: context.storyId,
       candidate: context.input,
+      title_requirement: "Use a distinctive Simplified Chinese title with a concrete scene/object/action. It must not be a generic version suffix.",
       required_json_fields: [
         "title",
         "genre",
@@ -316,6 +321,10 @@ function realIdeaPrompt(context: ExecutionContext): string {
         "twist_direction",
         "viral_score",
         "slug",
+        "theme",
+        "type",
+        "hotness_basis",
+        "writing_skill",
       ],
     },
     null,
@@ -354,7 +363,12 @@ function realWriterPrompt(context: ExecutionContext): string {
       story_id: context.storyId,
       idea: context.input.idea,
       outline: context.input.outline,
-      length_guidance: "Write a complete but concise first draft for workflow validation.",
+      story_manager_candidate: context.input,
+      commercial_goal: "赚钱、有热度、提高完读和点击，不追求文学性。",
+      writing_skill: context.input.writing_skill,
+      hotness_basis: context.input.hotness_basis,
+      feedback_learning: context.input.feedback_learning,
+      length_guidance: "Write a complete but concise first draft for workflow validation. Keep the first 300 Chinese characters high-pressure.",
     },
     null,
     2,
@@ -369,6 +383,9 @@ async function realQaPrompt(context: ExecutionContext): Promise<string> {
       pass_threshold: context.config.qaThreshold,
       evaluated_file: context.input.currentDraft,
       draft_text: draftText,
+      story_manager_candidate: context.input,
+      feedback_learning: context.input.feedback_learning,
+      commercial_scoring_note: "Score for hook speed, conflict density, reader payoff, and likely retention. Literary elegance is secondary.",
       required_json_shape: {
         story_id: "string",
         evaluation_cycle: "number",
@@ -418,12 +435,16 @@ function normalizeIdeaOutput(output: JsonValue, context: ExecutionContext): Json
   return {
     title: stringValue(output.title, "Untitled Story"),
     genre: stringValue(output.genre, context.input.genre ?? "general"),
+    theme: stringValue(output.theme, context.input.theme ?? ""),
+    type: stringValue(output.type, context.input.type ?? ""),
     one_sentence_hook: stringValue(output.one_sentence_hook, output.hook ?? ""),
     core_conflict: stringValue(output.core_conflict, context.input.core_conflict ?? ""),
     protagonist: stringValue(output.protagonist, ""),
     obstacle_or_antagonist: stringValue(output.obstacle_or_antagonist, output.antagonist ?? ""),
     twist_direction: stringValue(output.twist_direction, output.twist ?? ""),
     viral_score: numberValue(output.viral_score, output.score, 0),
+    hotness_basis: stringValue(output.hotness_basis, context.input.hotness_basis ?? ""),
+    writing_skill: output.writing_skill && typeof output.writing_skill === "object" ? output.writing_skill : context.input.writing_skill ?? {},
     slug: stringValue(output.slug, context.input.slug ?? "story"),
   };
 }
@@ -478,22 +499,31 @@ function numberValue(...values: unknown[]): number {
   return 0;
 }
 
+function objectValue(value: unknown): JsonValue {
+  return value && typeof value === "object" && !Array.isArray(value) ? (value as JsonValue) : {};
+}
+
 function ideaOutput(context: ExecutionContext): JsonValue {
   const slug = String(context.input.slug);
   return {
-    title: "真实执行架构冒烟测试",
-    genre: "execution_architecture_mock",
-    one_sentence_hook: "一个 mock 选题验证 Story Manager、Workflow Engine、Agent Runtime 与 LLM Provider 的分层协作。",
-    core_conflict: "系统必须在不调用真实模型的前提下跑通真实执行架构。",
-    protagonist: "Story Forge Workflow Engine",
-    obstacle_or_antagonist: "尚未接入真实模型的执行层",
-    twist_direction: "QA 首轮低于阈值，Rewrite 后通过。",
-    viral_score: 80,
+    title: stringValue(context.input.working_title, "商业热点故事"),
+    genre: stringValue(context.input.genre, "commercial_story"),
+    theme: stringValue(context.input.theme, ""),
+    type: stringValue(context.input.type, ""),
+    one_sentence_hook: `${stringValue(context.input.commercial_angle, "强冲突商业钩子")}：${stringValue(context.input.core_conflict, "")}`,
+    core_conflict: stringValue(context.input.core_conflict, ""),
+    protagonist: stringValue(context.input.protagonist, "被低估的主角"),
+    obstacle_or_antagonist: stringValue(context.input.obstacle_or_antagonist, "掌握资源的对手"),
+    twist_direction: stringValue(context.input.twist_direction, "主角公开完成身份和资源反转。"),
+    viral_score: numberValue((context.input.scores as JsonValue | undefined)?.total, 80),
+    hotness_basis: stringValue(context.input.hotness_basis, ""),
+    writing_skill: context.input.writing_skill ?? {},
     slug,
   };
 }
 
-function outlineOutput(_context: ExecutionContext): JsonValue {
+function outlineOutput(context: ExecutionContext): JsonValue {
+  const idea = objectValue(context.input.idea);
   return {
     target_total_words: 300,
     chapter_count: 2,
@@ -501,28 +531,48 @@ function outlineOutput(_context: ExecutionContext): JsonValue {
       {
         chapter_number: 1,
         target_words: 150,
-        core_event: "Workflow Engine 创建 ExecutionContext 并调用 Agent Runtime。",
-        conflict: "每个 agent 必须只通过 runtime 连接 LLM Provider。",
-        ending_hook: "QA 返回 82 分，触发 Rewrite。",
+        core_event: `主角被迫面对压力：${stringValue(idea.core_conflict, context.input.core_conflict ?? "")}`,
+        conflict: stringValue(idea.obstacle_or_antagonist, context.input.obstacle_or_antagonist ?? ""),
+        ending_hook: "主角发现可以公开反击的证据、规则或隐藏身份。",
       },
       {
         chapter_number: 2,
         target_words: 150,
-        core_event: "Rewrite 后 QA 返回 90 分。",
-        conflict: "系统必须写入 trace、manifest 和 runs log。",
-        ending_hook: "final.md 由通过 QA 的 draft 产生。",
+        core_event: `反转兑现：${stringValue(idea.twist_direction, context.input.twist_direction ?? "")}`,
+        conflict: "对手试图封口或夺回叙事权，主角必须当场打穿。",
+        ending_hook: "主角拿回资源、身份或规则制定权。",
       },
     ],
-    final_ending: "Real AI Execution Architecture 的 mock phase 跑通。",
+    final_ending: stringValue(context.input.monetization_hook, "用快速爽点和公开反转完成结尾兑现。"),
   };
 }
 
-function draftV1Output(_context: ExecutionContext): string {
-  return "# Mock Draft v1\n\nThis draft is generated by Agent Runtime through the mock LLM Provider.\n\nNo real AI API was called.\n";
+function draftV1Output(context: ExecutionContext): string {
+  const idea = context.input.idea as JsonValue | undefined;
+  return [
+    `# ${stringValue(idea?.title, context.input.working_title ?? "商业热点故事")}`,
+    "",
+    `${stringValue(idea?.protagonist, "主角")}被推到所有人面前时，退路已经被堵死。${stringValue(idea?.core_conflict, context.input.core_conflict ?? "")}`,
+    "",
+    `${stringValue(idea?.obstacle_or_antagonist, "对手")}以为这是一场单方面碾压，却没发现主角一直等的就是公开审判这一刻。`,
+    "",
+    `写作技法：${stringValue((context.input.writing_skill as JsonValue | undefined)?.label, "强钩子商业写法")}。`,
+    "",
+  ].join("\n");
 }
 
-function draftV2Output(_context: ExecutionContext): string {
-  return "# Mock Draft v2\n\nThis rewrite is generated after QA returned a score below 85.\n\nNo real AI API was called.\n";
+function draftV2Output(context: ExecutionContext): string {
+  const idea = context.input.idea as JsonValue | undefined;
+  return [
+    `# ${stringValue(idea?.title, context.input.working_title ?? "商业热点故事")}`,
+    "",
+    `倒计时还剩三十秒，${stringValue(idea?.protagonist, "主角")}先把证据投到大屏上，再抬头看向所有等着看笑话的人。`,
+    "",
+    `${stringValue(idea?.twist_direction, context.input.twist_direction ?? "真正的反转当场发生。")} 这一刻，围观者终于知道谁才握着规则。`,
+    "",
+    "Rewrite 后补强了开篇压力、公开反转和爽点兑现，用于通过 90 分 QA 阈值。",
+    "",
+  ].join("\n");
 }
 
 function qaOutput(context: ExecutionContext): JsonValue {

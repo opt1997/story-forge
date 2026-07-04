@@ -10,15 +10,17 @@ async function main() {
   const providerArg = process.argv.find((arg) => arg.startsWith("--provider="));
   const progressFileArg = process.argv.find((arg) => arg.startsWith("--progress-file="));
   const storyIndexArg = process.argv.find((arg) => arg.startsWith("--story-index="));
+  const candidateIdArg = process.argv.find((arg) => arg.startsWith("--candidate-id="));
   const runDate = runDateArg ? runDateArg.slice("--date=".length) : undefined;
   const provider = providerArg
     ? providerArg.slice("--provider=".length)
     : process.env.STORY_FORGE_LLM_PROVIDER || "mock";
   const progressFile = progressFileArg ? progressFileArg.slice("--progress-file=".length) : undefined;
   const storyIndex = storyIndexArg ? Number(storyIndexArg.slice("--story-index=".length)) : undefined;
+  const candidateId = candidateIdArg ? candidateIdArg.slice("--candidate-id=".length) : undefined;
   const workflowUrl = pathToFileURL(path.join(rootDir, "core", "workflow", "workflow-engine.ts")).href;
   const { WorkflowEngine } = await import(workflowUrl);
-  const engine = new WorkflowEngine({ rootDir, runDate, provider, progressFile, storyIndex });
+  const engine = new WorkflowEngine({ rootDir, runDate, provider, progressFile, storyIndex, candidateId });
   const summary = await engine.run();
   process.stdout.write(`${JSON.stringify(summary, null, 2)}\n`);
 }

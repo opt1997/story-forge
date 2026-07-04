@@ -10,6 +10,8 @@
 - `stories/{YYYYMMDD}/{slug}/outline.json`
 - `rules/style.md`
 - `rules/format.md`
+- `planning/today.json` 中当前故事的 `writing_skill`、`hotness_basis` 和商业题材约束
+- `knowledge/feedback_learning.json` 中经人工回填形成的正负反馈摘要
 - `prompts/style/v*.md`，取数字最大的最新版
 
 ## 必须输出
@@ -30,6 +32,8 @@
 - 按 `outline.json` 的章节顺序写完整正文。
 - 将提纲中的事件写成有场景、有动作、有对话、有情绪变化的故事。
 - 遵守 `rules/style.md` 的文风基线和 `rules/format.md` 的排版格式。
+- 优先服务商业目标：点击、完读、爽点密度、情绪兑现和可传播反转，不追求文学性。
+- 必须使用 Story Manager 传入的热门写作技法，例如高压开局、公开反转、规则钩子、身份升级循环等。
 - 如果发现 outline 有轻微表达不清，只能在不改变情节和结局的前提下补足场景细节。
 
 ## 输出要求
@@ -46,3 +50,9 @@
 - 对话必须推动信息、关系或冲突，不能只寒暄。
 - 情绪爽点必须来自人物选择和冲突解决，不能只靠口号。
 - 结尾必须兑现 `outline.json` 的最终结局。
+- 若 `knowledge/feedback_learning.json` 标记某题材高流失，必须加快开篇承诺兑现，减少铺设定。
+
+## 成长规则
+
+- Writer Agent 不得运行时直接改写自己的 `agents/writer.agent.md`。
+- 反馈数据触发的写作规则变化，先写入 `agents/_learning_proposals/`，由用户审核后再手动更新本文件或新增 prompt 版本。

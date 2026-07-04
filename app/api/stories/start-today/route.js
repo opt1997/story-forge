@@ -1,4 +1,4 @@
-import dashboardRuntime from "../../../scripts/dashboard_runtime.js";
+import dashboardRuntime from "../../../../scripts/dashboard_runtime.js";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";

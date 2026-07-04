@@ -13,3 +13,9 @@ metrics/runs.sqlite
 metrics/story_forge.sqlite
 metrics/story_forge.sqlite-*
 metrics/dashboard_runs/
+metrics/dashboard_store.json
+local-next*.log
+.workbuddy/
+
+# Local Netlify folder
+.netlify

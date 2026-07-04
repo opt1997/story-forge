@@ -1,5 +1,6 @@
 import { appendFile, copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
+import { createRequire } from "node:module";
 import path from "node:path";
 import { AgentRuntime } from "../runtime/agent-runtime.ts";
 import { createAgentRegistry } from "../runtime/agent-registry.ts";
@@ -10,6 +11,8 @@ import { createInitialPipelineState, type PipelineStage } from "./pipeline.ts";
 import { WorkflowStateMachine } from "./state-machine.ts";
 
 const SHANGHAI_TZ = "Asia/Shanghai";
+const require = createRequire(import.meta.url);
+const storyStrategy = require("../../scripts/story_strategy.js");
 
 export type WorkflowRunOptions = {
   rootDir: string;
@@ -17,6 +20,7 @@ export type WorkflowRunOptions = {
   provider?: LLMProviderName;
   progressFile?: string;
   storyIndex?: number;
+  candidateId?: string;
 };
 
 export type WorkflowRunSummary = {
@@ -59,8 +63,7 @@ export class WorkflowEngine {
   async run(): Promise<WorkflowRunSummary> {
     const runId = `run_${Date.now()}`;
     const runDate = this.options.runDate ?? todayDate();
-    const plan = await this.createTodayPlan(runDate);
-    const selected = plan.selected_top_n[0];
+    const { plan, selected } = await this.createTodayPlan(runDate);
     const slug = await uniqueSlug(this.options.rootDir, runDate, selected.slug);
     const storyId = `${runDate}-${slug}`;
     const storyDir = path.join(this.options.rootDir, "stories", runDate, slug);
@@ -80,8 +83,8 @@ export class WorkflowEngine {
       storyDir,
       provider: this.providerName,
       modelByAgent: modelMapFor(this.providerName),
-      qaThreshold: 85,
-      maxRewriteRounds: 3,
+      qaThreshold: 90,
+      maxRewriteRounds: 2,
     };
     const context: ExecutionContext = {
       storyId,
@@ -215,28 +218,12 @@ export class WorkflowEngine {
     }
   }
 
-  private async createTodayPlan(runDate: string): Promise<any> {
-    const candidate = {
-      candidate_id: "real-exec-mock-001",
-      working_title: "真实执行架构冒烟测试",
-      genre: "execution_architecture_mock",
-      slug: "real-exec-smoke-test",
-      priority: 1,
-      core_conflict: "验证 mock to real 的执行架构是否跑通。",
-    };
-    const plan = {
-      date: runDate,
-      status: "top_n_selected",
-      target_story_count: 1,
-      planned_genres: [{ genre: candidate.genre, count: 1 }],
-      avoid_genres: [],
-      topic_candidates: [candidate],
-      selected_top_n: [candidate],
-      reasons: ["Real AI Execution Architecture mock phase validation."],
-      updated_at: nowIso(),
-    };
-    await writeJson(path.join(this.options.rootDir, "planning", "today.json"), plan);
-    return plan;
+  private async createTodayPlan(runDate: string): Promise<{ plan: any; selected: any }> {
+    const storyIndex = this.options.storyIndex ?? 1;
+    const { plan, candidate } = await storyStrategy.selectCandidateForStory(this.options.rootDir, runDate, storyIndex, {
+      candidateId: this.options.candidateId,
+    });
+    return { plan, selected: candidate };
   }
 
   private async runStage(
@@ -341,15 +328,15 @@ export class WorkflowEngine {
       story_id: storyId,
       date: runDate,
       slug,
-      title: String(idea.title ?? plan.selected_top_n[0]?.working_title ?? "真实执行架构冒烟测试"),
-      genre: String(idea.genre ?? plan.selected_top_n[0]?.genre ?? "execution_architecture"),
+      title: String(idea.title ?? context.input.working_title ?? plan.selected_top_n[0]?.working_title ?? "商业选题故事"),
+      genre: String(idea.genre ?? context.input.genre ?? plan.selected_top_n[0]?.genre ?? "commercial_story"),
       status,
       current_draft: currentDraftKey ? artifacts[currentDraftKey] : "",
       current_qa: currentQaKey ? artifacts[currentQaKey] : "",
       rewrite_round: rewriteRounds,
       qa_round: latestArtifactRound(artifacts, "qa_v"),
       final_score: finalScore,
-      pass_threshold: 85,
+      pass_threshold: context.config.qaThreshold,
       files: {
         idea: artifacts.idea ?? "",
         outline: artifacts.outline ?? "",
@@ -364,7 +351,10 @@ export class WorkflowEngine {
       extra_artifacts: Object.fromEntries(Object.entries(artifacts).filter(([key]) => key.startsWith("draft_v4") || key.startsWith("qa_v4"))),
       planning: {
         today: "planning/today.json",
-        candidate_id: plan.selected_top_n[0]?.candidate_id,
+        candidate_id: context.input.candidate_id,
+        rank: context.input.rank,
+        hotness_basis: context.input.hotness_basis,
+        writing_skill: context.input.writing_skill,
       },
       prompt_versions: {
         style: "v1",

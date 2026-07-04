@@ -265,7 +265,7 @@ const server = createServer(async (request, response) => {
     const url = new URL(request.url, `http://localhost:${port}`);
     if (request.method === "POST" && url.pathname === "/api/start-today") {
       const body = await readBody(request);
-      sendJson(response, 200, await dashboard.startDashboardRun(root, body.count ?? 1));
+      sendJson(response, 200, await dashboard.startDashboardRun(root, body));
       return;
     }
     if (request.method === "GET" && url.pathname === "/api/dashboard") {

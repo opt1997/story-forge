@@ -1,0 +1,21 @@
+[build]
+command = "npm run build"
+publish = ".next"
+
+[build.environment]
+NODE_VERSION = "24"
+NPM_FLAGS = "--no-audit --no-fund"
+
+[functions]
+included_files = [
+  "agents/**",
+  "core/**",
+  "knowledge/**",
+  "metrics/**",
+  "planning/**",
+  "prompts/**",
+  "rules/**",
+  "scripts/**",
+  "stories/.gitkeep",
+  "templates/**"
+]

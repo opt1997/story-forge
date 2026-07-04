@@ -1,47 +1,4154 @@
 {
-  "date": "",
-  "status": "pending_story_manager_generation",
-  "target_story_count": 0,
-  "history_windows": {
-    "recent_7_days": {
-      "genres_seen": [],
-      "repeated_genres": [],
-      "high_quality_genres": [],
-      "missing_genres": [],
-      "notes": ""
+  "date": "20260704",
+  "status": "topics_ready",
+  "target_story_count": 1,
+  "topic_candidates": [
+    {
+      "candidate_id": "20260704-topic-12",
+      "working_title": "替身合约到期后全城开始找我·反击版",
+      "slug": "topic-0",
+      "genre": "豪门婚恋",
+      "theme": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "type": "豪门婚恋",
+      "target_audience": "豪门婚恋读者",
+      "trend_signals": [
+        "替身",
+        "豪门",
+        "身份反转",
+        "反击"
+      ],
+      "hotness_basis": "替身 / 豪门 / 身份反转 / 反击 / heat 86 / mock",
+      "commercial_angle": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "priority": 0,
+      "core_conflict": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "豪门婚恋"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 91,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 86,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 89
+      },
+      "rank": 0
     },
-    "recent_30_days": {
-      "genres_seen": [],
-      "repeated_genres": [],
-      "high_quality_genres": [],
-      "low_quality_genres": [],
-      "missing_genres": [],
-      "notes": ""
+    {
+      "candidate_id": "20260704-topic-02",
+      "working_title": "替身合约到期后全城开始找我",
+      "slug": "topic-1",
+      "genre": "豪门婚恋",
+      "theme": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "type": "豪门婚恋",
+      "target_audience": "豪门婚恋读者",
+      "trend_signals": [
+        "替身",
+        "豪门",
+        "身份反转",
+        "主推"
+      ],
+      "hotness_basis": "替身 / 豪门 / 身份反转 / 主推 / heat 89 / mock",
+      "commercial_angle": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "priority": 1,
+      "core_conflict": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "protagonist": "被迫签下替身协议的女主",
+      "obstacle_or_antagonist": "把婚姻当生意的豪门继承人",
+      "twist_direction": "真正能救项目的人不是白月光，而是被轻视的替身。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "豪门婚恋"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 90,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 89,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 90
+      },
+      "rank": 1
+    },
+    {
+      "candidate_id": "20260704-topic-11",
+      "working_title": "被裁当天我接管了老板的直播间·反击版",
+      "slug": "topic-2",
+      "genre": "都市逆袭",
+      "theme": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "type": "都市逆袭",
+      "target_audience": "都市逆袭读者",
+      "trend_signals": [
+        "直播",
+        "职场",
+        "反转",
+        "反击"
+      ],
+      "hotness_basis": "直播 / 职场 / 反转 / 反击 / heat 88 / mock",
+      "commercial_angle": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "priority": 2,
+      "core_conflict": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "都市逆袭"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 89,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 88,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 89
+      },
+      "rank": 2
+    },
+    {
+      "candidate_id": "20260704-topic-01",
+      "working_title": "被裁当天我接管了老板的直播间",
+      "slug": "topic-3",
+      "genre": "都市逆袭",
+      "theme": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "type": "都市逆袭",
+      "target_audience": "都市逆袭读者",
+      "trend_signals": [
+        "直播",
+        "职场",
+        "反转",
+        "主推"
+      ],
+      "hotness_basis": "直播 / 职场 / 反转 / 主推 / heat 91 / mock",
+      "commercial_angle": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "priority": 3,
+      "core_conflict": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "protagonist": "被低估的运营新人",
+      "obstacle_or_antagonist": "抢功劳的上级和失控舆论",
+      "twist_direction": "老板以为能封号，结果直播间权限早已绑定主角身份。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "都市逆袭"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 88,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 91,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 90
+      },
+      "rank": 3
+    },
+    {
+      "candidate_id": "20260704-topic-22",
+      "working_title": "替身合约到期后全城开始找我·反差版",
+      "slug": "topic-4",
+      "genre": "豪门婚恋",
+      "theme": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "type": "豪门婚恋",
+      "target_audience": "豪门婚恋读者",
+      "trend_signals": [
+        "替身",
+        "豪门",
+        "身份反转",
+        "反差"
+      ],
+      "hotness_basis": "替身 / 豪门 / 身份反转 / 反差 / heat 88 / mock",
+      "commercial_angle": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "priority": 4,
+      "core_conflict": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "豪门婚恋"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 88,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 88,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 88
+      },
+      "rank": 4
+    },
+    {
+      "candidate_id": "20260704-topic-03",
+      "working_title": "末班地铁禁止回复第三条消息",
+      "slug": "topic-5",
+      "genre": "规则怪谈",
+      "theme": "末班车里熟人接连求救，规则只允许回复一次。",
+      "type": "规则怪谈",
+      "target_audience": "规则怪谈读者",
+      "trend_signals": [
+        "地铁",
+        "规则",
+        "悬疑",
+        "主推"
+      ],
+      "hotness_basis": "地铁 / 规则 / 悬疑 / 主推 / heat 86 / mock",
+      "commercial_angle": "末班车里熟人接连求救，规则只允许回复一次。",
+      "priority": 5,
+      "core_conflict": "末班车里熟人接连求救，规则只允许回复一次。",
+      "protagonist": "加班到深夜的普通乘客",
+      "obstacle_or_antagonist": "不断模仿熟人的未知乘客",
+      "twist_direction": "真正被困住的不是主角，而是所有回过第三条消息的人。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "规则怪谈"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 87,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 86,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 87
+      },
+      "rank": 5
+    },
+    {
+      "candidate_id": "20260704-topic-13",
+      "working_title": "末班地铁禁止回复第三条消息·反击版",
+      "slug": "topic-6",
+      "genre": "规则怪谈",
+      "theme": "末班车里熟人接连求救，规则只允许回复一次。",
+      "type": "规则怪谈",
+      "target_audience": "规则怪谈读者",
+      "trend_signals": [
+        "地铁",
+        "规则",
+        "悬疑",
+        "反击"
+      ],
+      "hotness_basis": "地铁 / 规则 / 悬疑 / 反击 / heat 83 / mock",
+      "commercial_angle": "末班车里熟人接连求救，规则只允许回复一次。",
+      "priority": 6,
+      "core_conflict": "末班车里熟人接连求救，规则只允许回复一次。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "规则怪谈"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 87,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 83,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 85
+      },
+      "rank": 6
+    },
+    {
+      "candidate_id": "20260704-topic-21",
+      "working_title": "被裁当天我接管了老板的直播间·反差版",
+      "slug": "topic-7",
+      "genre": "都市逆袭",
+      "theme": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "type": "都市逆袭",
+      "target_audience": "都市逆袭读者",
+      "trend_signals": [
+        "直播",
+        "职场",
+        "反转",
+        "反差"
+      ],
+      "hotness_basis": "直播 / 职场 / 反转 / 反差 / heat 90 / mock",
+      "commercial_angle": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "priority": 7,
+      "core_conflict": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "都市逆袭"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 86,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 90,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 88
+      },
+      "rank": 7
+    },
+    {
+      "candidate_id": "20260704-topic-04",
+      "working_title": "我停掉转账后全家开始审判我",
+      "slug": "topic-8",
+      "genre": "亲情撕裂",
+      "theme": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "type": "亲情撕裂",
+      "target_audience": "亲情撕裂读者",
+      "trend_signals": [
+        "亲情",
+        "现实",
+        "清算",
+        "主推"
+      ],
+      "hotness_basis": "亲情 / 现实 / 清算 / 主推 / heat 84 / mock",
+      "commercial_angle": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "priority": 8,
+      "core_conflict": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "protagonist": "长期供养家庭的长女",
+      "obstacle_or_antagonist": "把牺牲视为理所当然的亲属",
+      "twist_direction": "她公开所有债务和病历，真正欠债的人被推到镜头前。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "亲情撕裂"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 86,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 84,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 85
+      },
+      "rank": 8
+    },
+    {
+      "candidate_id": "20260704-topic-06",
+      "working_title": "退婚后我成了新规则的制定者",
+      "slug": "topic-9",
+      "genre": "女频爽文",
+      "theme": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "type": "女频爽文",
+      "target_audience": "女频爽文读者",
+      "trend_signals": [
+        "退婚",
+        "创业",
+        "爽点",
+        "主推"
+      ],
+      "hotness_basis": "退婚 / 创业 / 爽点 / 主推 / heat 82 / mock",
+      "commercial_angle": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "priority": 9,
+      "core_conflict": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "protagonist": "被退婚羞辱的创业者",
+      "obstacle_or_antagonist": "用婚约交换资源的前未婚夫",
+      "twist_direction": "她不是来求入场，而是被平台邀请来重写规则。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "女频爽文"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 86,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 82,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 84
+      },
+      "rank": 9
+    },
+    {
+      "candidate_id": "20260704-topic-14",
+      "working_title": "我停掉转账后全家开始审判我·反击版",
+      "slug": "topic-10",
+      "genre": "亲情撕裂",
+      "theme": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "type": "亲情撕裂",
+      "target_audience": "亲情撕裂读者",
+      "trend_signals": [
+        "亲情",
+        "现实",
+        "清算",
+        "反击"
+      ],
+      "hotness_basis": "亲情 / 现实 / 清算 / 反击 / heat 81 / mock",
+      "commercial_angle": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "priority": 10,
+      "core_conflict": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "亲情撕裂"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 86,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 81,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 84
+      },
+      "rank": 10
+    },
+    {
+      "candidate_id": "20260704-topic-16",
+      "working_title": "退婚后我成了新规则的制定者·反击版",
+      "slug": "topic-11",
+      "genre": "女频爽文",
+      "theme": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "type": "女频爽文",
+      "target_audience": "女频爽文读者",
+      "trend_signals": [
+        "退婚",
+        "创业",
+        "爽点",
+        "反击"
+      ],
+      "hotness_basis": "退婚 / 创业 / 爽点 / 反击 / heat 79 / mock",
+      "commercial_angle": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "priority": 11,
+      "core_conflict": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "女频爽文"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 86,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 79,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 83
+      },
+      "rank": 11
+    },
+    {
+      "candidate_id": "20260704-topic-23",
+      "working_title": "末班地铁禁止回复第三条消息·反差版",
+      "slug": "topic-12",
+      "genre": "规则怪谈",
+      "theme": "末班车里熟人接连求救，规则只允许回复一次。",
+      "type": "规则怪谈",
+      "target_audience": "规则怪谈读者",
+      "trend_signals": [
+        "地铁",
+        "规则",
+        "悬疑",
+        "反差"
+      ],
+      "hotness_basis": "地铁 / 规则 / 悬疑 / 反差 / heat 85 / mock",
+      "commercial_angle": "末班车里熟人接连求救，规则只允许回复一次。",
+      "priority": 12,
+      "core_conflict": "末班车里熟人接连求救，规则只允许回复一次。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "规则怪谈"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 85,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 85,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 85
+      },
+      "rank": 12
+    },
+    {
+      "candidate_id": "20260704-topic-05",
+      "working_title": "会议室里他们让我背锅",
+      "slug": "topic-13",
+      "genre": "职场爽文",
+      "theme": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "type": "职场爽文",
+      "target_audience": "职场爽文读者",
+      "trend_signals": [
+        "职场",
+        "证据",
+        "公开打脸",
+        "主推"
+      ],
+      "hotness_basis": "职场 / 证据 / 公开打脸 / 主推 / heat 83 / mock",
+      "commercial_angle": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "priority": 13,
+      "core_conflict": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "protagonist": "掌握关键日志的项目负责人",
+      "obstacle_or_antagonist": "临时甩锅的管理层",
+      "twist_direction": "客户代表正好在场，看见自动同步报告里的违规指令。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "职场爽文"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 85,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 83,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 84
+      },
+      "rank": 13
+    },
+    {
+      "candidate_id": "20260704-topic-15",
+      "working_title": "会议室里他们让我背锅·反击版",
+      "slug": "topic-14",
+      "genre": "职场爽文",
+      "theme": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "type": "职场爽文",
+      "target_audience": "职场爽文读者",
+      "trend_signals": [
+        "职场",
+        "证据",
+        "公开打脸",
+        "反击"
+      ],
+      "hotness_basis": "职场 / 证据 / 公开打脸 / 反击 / heat 80 / mock",
+      "commercial_angle": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "priority": 14,
+      "core_conflict": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "职场爽文"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 85,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 80,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 83
+      },
+      "rank": 14
+    },
+    {
+      "candidate_id": "20260704-topic-24",
+      "working_title": "我停掉转账后全家开始审判我·反差版",
+      "slug": "topic-15",
+      "genre": "亲情撕裂",
+      "theme": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "type": "亲情撕裂",
+      "target_audience": "亲情撕裂读者",
+      "trend_signals": [
+        "亲情",
+        "现实",
+        "清算",
+        "反差"
+      ],
+      "hotness_basis": "亲情 / 现实 / 清算 / 反差 / heat 83 / mock",
+      "commercial_angle": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "priority": 15,
+      "core_conflict": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "亲情撕裂"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 84,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 83,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 84
+      },
+      "rank": 15
+    },
+    {
+      "candidate_id": "20260704-topic-10",
+      "working_title": "我被系统判定为无效继承人",
+      "slug": "topic-16",
+      "genre": "系统流",
+      "theme": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "type": "系统流",
+      "target_audience": "系统流读者",
+      "trend_signals": [
+        "系统",
+        "继承",
+        "漏洞",
+        "主推"
+      ],
+      "hotness_basis": "系统 / 继承 / 漏洞 / 主推 / heat 81 / mock",
+      "commercial_angle": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "priority": 16,
+      "core_conflict": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "protagonist": "被家族系统排除的继承人",
+      "obstacle_or_antagonist": "篡改评分规则的家族代理人",
+      "twist_direction": "无效继承人反而拥有唯一的规则修复权限。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "系统流"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 84,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 81,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 83
+      },
+      "rank": 16
+    },
+    {
+      "candidate_id": "20260704-topic-07",
+      "working_title": "养老院账本失踪的那一晚",
+      "slug": "topic-17",
+      "genre": "现实悬疑",
+      "theme": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "type": "现实悬疑",
+      "target_audience": "现实悬疑读者",
+      "trend_signals": [
+        "养老",
+        "骗局",
+        "证据",
+        "主推"
+      ],
+      "hotness_basis": "养老 / 骗局 / 证据 / 主推 / heat 80 / mock",
+      "commercial_angle": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "priority": 17,
+      "core_conflict": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "protagonist": "替母亲追账的普通女儿",
+      "obstacle_or_antagonist": "披着公益外衣的机构负责人",
+      "twist_direction": "账本没有丢，而是被母亲藏在所有人忽略的旧收音机里。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "现实悬疑"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 84,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 80,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 82
+      },
+      "rank": 17
+    },
+    {
+      "candidate_id": "20260704-topic-20",
+      "working_title": "我被系统判定为无效继承人·反击版",
+      "slug": "topic-18",
+      "genre": "系统流",
+      "theme": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "type": "系统流",
+      "target_audience": "系统流读者",
+      "trend_signals": [
+        "系统",
+        "继承",
+        "漏洞",
+        "反击"
+      ],
+      "hotness_basis": "系统 / 继承 / 漏洞 / 反击 / heat 78 / mock",
+      "commercial_angle": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "priority": 18,
+      "core_conflict": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "系统流"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 84,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 78,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 81
+      },
+      "rank": 18
+    },
+    {
+      "candidate_id": "20260704-topic-17",
+      "working_title": "养老院账本失踪的那一晚·反击版",
+      "slug": "topic-19",
+      "genre": "现实悬疑",
+      "theme": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "type": "现实悬疑",
+      "target_audience": "现实悬疑读者",
+      "trend_signals": [
+        "养老",
+        "骗局",
+        "证据",
+        "反击"
+      ],
+      "hotness_basis": "养老 / 骗局 / 证据 / 反击 / heat 77 / mock",
+      "commercial_angle": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "priority": 19,
+      "core_conflict": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "现实悬疑"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 84,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 77,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 81
+      },
+      "rank": 19
+    },
+    {
+      "candidate_id": "20260704-topic-08",
+      "working_title": "AI替我写辞职信后老板慌了",
+      "slug": "ai",
+      "genre": "职场逆袭",
+      "theme": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "type": "职场逆袭",
+      "target_audience": "职场逆袭读者",
+      "trend_signals": [
+        "AI",
+        "辞职",
+        "谈判",
+        "主推"
+      ],
+      "hotness_basis": "AI / 辞职 / 谈判 / 主推 / heat 88 / mock",
+      "commercial_angle": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "priority": 20,
+      "core_conflict": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "protagonist": "被算法低估的基层员工",
+      "obstacle_or_antagonist": "把所有成果归给工具的老板",
+      "twist_direction": "真正不可替代的不是工具，而是训练出流程的人。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "职场逆袭"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 83,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 88,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 86
+      },
+      "rank": 20
+    },
+    {
+      "candidate_id": "20260704-topic-18",
+      "working_title": "AI替我写辞职信后老板慌了·反击版",
+      "slug": "ai",
+      "genre": "职场逆袭",
+      "theme": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "type": "职场逆袭",
+      "target_audience": "职场逆袭读者",
+      "trend_signals": [
+        "AI",
+        "辞职",
+        "谈判",
+        "反击"
+      ],
+      "hotness_basis": "AI / 辞职 / 谈判 / 反击 / heat 85 / mock",
+      "commercial_angle": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "priority": 21,
+      "core_conflict": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "职场逆袭"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 83,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 85,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 84
+      },
+      "rank": 21
+    },
+    {
+      "candidate_id": "20260704-topic-26",
+      "working_title": "退婚后我成了新规则的制定者·反差版",
+      "slug": "topic-22",
+      "genre": "女频爽文",
+      "theme": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "type": "女频爽文",
+      "target_audience": "女频爽文读者",
+      "trend_signals": [
+        "退婚",
+        "创业",
+        "爽点",
+        "反差"
+      ],
+      "hotness_basis": "退婚 / 创业 / 爽点 / 反差 / heat 81 / mock",
+      "commercial_angle": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "priority": 22,
+      "core_conflict": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "女频爽文"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 83,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 81,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 82
+      },
+      "rank": 22
+    },
+    {
+      "candidate_id": "20260704-topic-09",
+      "working_title": "直播间第十分钟不能说真话",
+      "slug": "topic-23",
+      "genre": "直播舆论",
+      "theme": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "type": "直播舆论",
+      "target_audience": "直播舆论读者",
+      "trend_signals": [
+        "直播",
+        "舆论",
+        "规则",
+        "主推"
+      ],
+      "hotness_basis": "直播 / 舆论 / 规则 / 主推 / heat 85 / mock",
+      "commercial_angle": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "priority": 23,
+      "core_conflict": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "protagonist": "临时救场的幕后运营",
+      "obstacle_or_antagonist": "试图操控舆论的品牌方",
+      "twist_direction": "主角提前把真相拆成十分钟前后的证据链，避开封禁规则。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "直播舆论"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 82,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 85,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 84
+      },
+      "rank": 23
+    },
+    {
+      "candidate_id": "20260704-topic-19",
+      "working_title": "直播间第十分钟不能说真话·反击版",
+      "slug": "topic-24",
+      "genre": "直播舆论",
+      "theme": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "type": "直播舆论",
+      "target_audience": "直播舆论读者",
+      "trend_signals": [
+        "直播",
+        "舆论",
+        "规则",
+        "反击"
+      ],
+      "hotness_basis": "直播 / 舆论 / 规则 / 反击 / heat 82 / mock",
+      "commercial_angle": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "priority": 24,
+      "core_conflict": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "直播舆论"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 82,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 82,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 82
+      },
+      "rank": 24
+    },
+    {
+      "candidate_id": "20260704-topic-25",
+      "working_title": "会议室里他们让我背锅·反差版",
+      "slug": "topic-25",
+      "genre": "职场爽文",
+      "theme": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "type": "职场爽文",
+      "target_audience": "职场爽文读者",
+      "trend_signals": [
+        "职场",
+        "证据",
+        "公开打脸",
+        "反差"
+      ],
+      "hotness_basis": "职场 / 证据 / 公开打脸 / 反差 / heat 82 / mock",
+      "commercial_angle": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "priority": 25,
+      "core_conflict": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "职场爽文"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 82,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 82,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 82
+      },
+      "rank": 25
+    },
+    {
+      "candidate_id": "20260704-topic-30",
+      "working_title": "我被系统判定为无效继承人·反差版",
+      "slug": "topic-26",
+      "genre": "系统流",
+      "theme": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "type": "系统流",
+      "target_audience": "系统流读者",
+      "trend_signals": [
+        "系统",
+        "继承",
+        "漏洞",
+        "反差"
+      ],
+      "hotness_basis": "系统 / 继承 / 漏洞 / 反差 / heat 80 / mock",
+      "commercial_angle": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "priority": 26,
+      "core_conflict": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "系统流"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 81,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 80,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 81
+      },
+      "rank": 26
+    },
+    {
+      "candidate_id": "20260704-topic-27",
+      "working_title": "养老院账本失踪的那一晚·反差版",
+      "slug": "topic-27",
+      "genre": "现实悬疑",
+      "theme": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "type": "现实悬疑",
+      "target_audience": "现实悬疑读者",
+      "trend_signals": [
+        "养老",
+        "骗局",
+        "证据",
+        "反差"
+      ],
+      "hotness_basis": "养老 / 骗局 / 证据 / 反差 / heat 79 / mock",
+      "commercial_angle": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "priority": 27,
+      "core_conflict": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "现实悬疑"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 81,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 79,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 80
+      },
+      "rank": 27
+    },
+    {
+      "candidate_id": "20260704-topic-28",
+      "working_title": "AI替我写辞职信后老板慌了·反差版",
+      "slug": "ai",
+      "genre": "职场逆袭",
+      "theme": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "type": "职场逆袭",
+      "target_audience": "职场逆袭读者",
+      "trend_signals": [
+        "AI",
+        "辞职",
+        "谈判",
+        "反差"
+      ],
+      "hotness_basis": "AI / 辞职 / 谈判 / 反差 / heat 87 / mock",
+      "commercial_angle": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "priority": 28,
+      "core_conflict": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "职场逆袭"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 80,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 87,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 84
+      },
+      "rank": 28
+    },
+    {
+      "candidate_id": "20260704-topic-29",
+      "working_title": "直播间第十分钟不能说真话·反差版",
+      "slug": "topic-29",
+      "genre": "直播舆论",
+      "theme": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "type": "直播舆论",
+      "target_audience": "直播舆论读者",
+      "trend_signals": [
+        "直播",
+        "舆论",
+        "规则",
+        "反差"
+      ],
+      "hotness_basis": "直播 / 舆论 / 规则 / 反差 / heat 84 / mock",
+      "commercial_angle": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "priority": 29,
+      "core_conflict": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "直播舆论"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 79,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 84,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 82
+      },
+      "rank": 29
     }
-  },
-  "planned_genres": [],
-  "avoid_genres": [],
-  "improvement_targets": [],
-  "topic_candidates": [],
-  "diversity_filter": {
-    "rules_applied": [],
-    "kept_candidate_ids": [],
-    "removed_candidates": []
-  },
+  ],
   "ranking": {
-    "scoring_dimensions": [
-      "innovation",
-      "conflict",
-      "twist",
-      "platform_fit",
-      "hook",
-      "emotion",
-      "diversity_bonus",
-      "repetition_penalty"
-    ],
-    "ranked_candidates": []
+    "ranked_candidates": [
+      {
+        "candidate_id": "20260704-topic-12",
+        "working_title": "替身合约到期后全城开始找我·反击版",
+        "slug": "topic-0",
+        "genre": "豪门婚恋",
+        "theme": "合约替身退出豪门局，却成为唯一能救盘的人。",
+        "type": "豪门婚恋",
+        "target_audience": "豪门婚恋读者",
+        "trend_signals": [
+          "替身",
+          "豪门",
+          "身份反转",
+          "反击"
+        ],
+        "hotness_basis": "替身 / 豪门 / 身份反转 / 反击 / heat 86 / mock",
+        "commercial_angle": "合约替身退出豪门局，却成为唯一能救盘的人。",
+        "priority": 0,
+        "core_conflict": "合约替身退出豪门局，却成为唯一能救盘的人。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "豪门婚恋"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 91,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 86,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 89
+        },
+        "rank": 0
+      },
+      {
+        "candidate_id": "20260704-topic-02",
+        "working_title": "替身合约到期后全城开始找我",
+        "slug": "topic-1",
+        "genre": "豪门婚恋",
+        "theme": "合约替身退出豪门局，却成为唯一能救盘的人。",
+        "type": "豪门婚恋",
+        "target_audience": "豪门婚恋读者",
+        "trend_signals": [
+          "替身",
+          "豪门",
+          "身份反转",
+          "主推"
+        ],
+        "hotness_basis": "替身 / 豪门 / 身份反转 / 主推 / heat 89 / mock",
+        "commercial_angle": "合约替身退出豪门局，却成为唯一能救盘的人。",
+        "priority": 1,
+        "core_conflict": "合约替身退出豪门局，却成为唯一能救盘的人。",
+        "protagonist": "被迫签下替身协议的女主",
+        "obstacle_or_antagonist": "把婚姻当生意的豪门继承人",
+        "twist_direction": "真正能救项目的人不是白月光，而是被轻视的替身。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "豪门婚恋"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 90,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 89,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 90
+        },
+        "rank": 1
+      },
+      {
+        "candidate_id": "20260704-topic-11",
+        "working_title": "被裁当天我接管了老板的直播间·反击版",
+        "slug": "topic-2",
+        "genre": "都市逆袭",
+        "theme": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+        "type": "都市逆袭",
+        "target_audience": "都市逆袭读者",
+        "trend_signals": [
+          "直播",
+          "职场",
+          "反转",
+          "反击"
+        ],
+        "hotness_basis": "直播 / 职场 / 反转 / 反击 / heat 88 / mock",
+        "commercial_angle": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+        "priority": 2,
+        "core_conflict": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "都市逆袭"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 89,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 88,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 89
+        },
+        "rank": 2
+      },
+      {
+        "candidate_id": "20260704-topic-01",
+        "working_title": "被裁当天我接管了老板的直播间",
+        "slug": "topic-3",
+        "genre": "都市逆袭",
+        "theme": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+        "type": "都市逆袭",
+        "target_audience": "都市逆袭读者",
+        "trend_signals": [
+          "直播",
+          "职场",
+          "反转",
+          "主推"
+        ],
+        "hotness_basis": "直播 / 职场 / 反转 / 主推 / heat 91 / mock",
+        "commercial_angle": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+        "priority": 3,
+        "core_conflict": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+        "protagonist": "被低估的运营新人",
+        "obstacle_or_antagonist": "抢功劳的上级和失控舆论",
+        "twist_direction": "老板以为能封号，结果直播间权限早已绑定主角身份。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "都市逆袭"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 88,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 91,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 90
+        },
+        "rank": 3
+      },
+      {
+        "candidate_id": "20260704-topic-22",
+        "working_title": "替身合约到期后全城开始找我·反差版",
+        "slug": "topic-4",
+        "genre": "豪门婚恋",
+        "theme": "合约替身退出豪门局，却成为唯一能救盘的人。",
+        "type": "豪门婚恋",
+        "target_audience": "豪门婚恋读者",
+        "trend_signals": [
+          "替身",
+          "豪门",
+          "身份反转",
+          "反差"
+        ],
+        "hotness_basis": "替身 / 豪门 / 身份反转 / 反差 / heat 88 / mock",
+        "commercial_angle": "合约替身退出豪门局，却成为唯一能救盘的人。",
+        "priority": 4,
+        "core_conflict": "合约替身退出豪门局，却成为唯一能救盘的人。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "豪门婚恋"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 88,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 88,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 88
+        },
+        "rank": 4
+      },
+      {
+        "candidate_id": "20260704-topic-03",
+        "working_title": "末班地铁禁止回复第三条消息",
+        "slug": "topic-5",
+        "genre": "规则怪谈",
+        "theme": "末班车里熟人接连求救，规则只允许回复一次。",
+        "type": "规则怪谈",
+        "target_audience": "规则怪谈读者",
+        "trend_signals": [
+          "地铁",
+          "规则",
+          "悬疑",
+          "主推"
+        ],
+        "hotness_basis": "地铁 / 规则 / 悬疑 / 主推 / heat 86 / mock",
+        "commercial_angle": "末班车里熟人接连求救，规则只允许回复一次。",
+        "priority": 5,
+        "core_conflict": "末班车里熟人接连求救，规则只允许回复一次。",
+        "protagonist": "加班到深夜的普通乘客",
+        "obstacle_or_antagonist": "不断模仿熟人的未知乘客",
+        "twist_direction": "真正被困住的不是主角，而是所有回过第三条消息的人。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "规则怪谈"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 87,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 86,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 87
+        },
+        "rank": 5
+      },
+      {
+        "candidate_id": "20260704-topic-13",
+        "working_title": "末班地铁禁止回复第三条消息·反击版",
+        "slug": "topic-6",
+        "genre": "规则怪谈",
+        "theme": "末班车里熟人接连求救，规则只允许回复一次。",
+        "type": "规则怪谈",
+        "target_audience": "规则怪谈读者",
+        "trend_signals": [
+          "地铁",
+          "规则",
+          "悬疑",
+          "反击"
+        ],
+        "hotness_basis": "地铁 / 规则 / 悬疑 / 反击 / heat 83 / mock",
+        "commercial_angle": "末班车里熟人接连求救，规则只允许回复一次。",
+        "priority": 6,
+        "core_conflict": "末班车里熟人接连求救，规则只允许回复一次。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "规则怪谈"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 87,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 83,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 85
+        },
+        "rank": 6
+      },
+      {
+        "candidate_id": "20260704-topic-21",
+        "working_title": "被裁当天我接管了老板的直播间·反差版",
+        "slug": "topic-7",
+        "genre": "都市逆袭",
+        "theme": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+        "type": "都市逆袭",
+        "target_audience": "都市逆袭读者",
+        "trend_signals": [
+          "直播",
+          "职场",
+          "反转",
+          "反差"
+        ],
+        "hotness_basis": "直播 / 职场 / 反转 / 反差 / heat 90 / mock",
+        "commercial_angle": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+        "priority": 7,
+        "core_conflict": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "都市逆袭"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 86,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 90,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 88
+        },
+        "rank": 7
+      },
+      {
+        "candidate_id": "20260704-topic-04",
+        "working_title": "我停掉转账后全家开始审判我",
+        "slug": "topic-8",
+        "genre": "亲情撕裂",
+        "theme": "长期供养者停止无底线转账，亲属关系当场反噬。",
+        "type": "亲情撕裂",
+        "target_audience": "亲情撕裂读者",
+        "trend_signals": [
+          "亲情",
+          "现实",
+          "清算",
+          "主推"
+        ],
+        "hotness_basis": "亲情 / 现实 / 清算 / 主推 / heat 84 / mock",
+        "commercial_angle": "长期供养者停止无底线转账，亲属关系当场反噬。",
+        "priority": 8,
+        "core_conflict": "长期供养者停止无底线转账，亲属关系当场反噬。",
+        "protagonist": "长期供养家庭的长女",
+        "obstacle_or_antagonist": "把牺牲视为理所当然的亲属",
+        "twist_direction": "她公开所有债务和病历，真正欠债的人被推到镜头前。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "亲情撕裂"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 86,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 84,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 85
+        },
+        "rank": 8
+      },
+      {
+        "candidate_id": "20260704-topic-06",
+        "working_title": "退婚后我成了新规则的制定者",
+        "slug": "topic-9",
+        "genre": "女频爽文",
+        "theme": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+        "type": "女频爽文",
+        "target_audience": "女频爽文读者",
+        "trend_signals": [
+          "退婚",
+          "创业",
+          "爽点",
+          "主推"
+        ],
+        "hotness_basis": "退婚 / 创业 / 爽点 / 主推 / heat 82 / mock",
+        "commercial_angle": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+        "priority": 9,
+        "core_conflict": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+        "protagonist": "被退婚羞辱的创业者",
+        "obstacle_or_antagonist": "用婚约交换资源的前未婚夫",
+        "twist_direction": "她不是来求入场，而是被平台邀请来重写规则。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "女频爽文"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 86,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 82,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 84
+        },
+        "rank": 9
+      },
+      {
+        "candidate_id": "20260704-topic-14",
+        "working_title": "我停掉转账后全家开始审判我·反击版",
+        "slug": "topic-10",
+        "genre": "亲情撕裂",
+        "theme": "长期供养者停止无底线转账，亲属关系当场反噬。",
+        "type": "亲情撕裂",
+        "target_audience": "亲情撕裂读者",
+        "trend_signals": [
+          "亲情",
+          "现实",
+          "清算",
+          "反击"
+        ],
+        "hotness_basis": "亲情 / 现实 / 清算 / 反击 / heat 81 / mock",
+        "commercial_angle": "长期供养者停止无底线转账，亲属关系当场反噬。",
+        "priority": 10,
+        "core_conflict": "长期供养者停止无底线转账，亲属关系当场反噬。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "亲情撕裂"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 86,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 81,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 84
+        },
+        "rank": 10
+      },
+      {
+        "candidate_id": "20260704-topic-16",
+        "working_title": "退婚后我成了新规则的制定者·反击版",
+        "slug": "topic-11",
+        "genre": "女频爽文",
+        "theme": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+        "type": "女频爽文",
+        "target_audience": "女频爽文读者",
+        "trend_signals": [
+          "退婚",
+          "创业",
+          "爽点",
+          "反击"
+        ],
+        "hotness_basis": "退婚 / 创业 / 爽点 / 反击 / heat 79 / mock",
+        "commercial_angle": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+        "priority": 11,
+        "core_conflict": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "女频爽文"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 86,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 79,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 83
+        },
+        "rank": 11
+      },
+      {
+        "candidate_id": "20260704-topic-23",
+        "working_title": "末班地铁禁止回复第三条消息·反差版",
+        "slug": "topic-12",
+        "genre": "规则怪谈",
+        "theme": "末班车里熟人接连求救，规则只允许回复一次。",
+        "type": "规则怪谈",
+        "target_audience": "规则怪谈读者",
+        "trend_signals": [
+          "地铁",
+          "规则",
+          "悬疑",
+          "反差"
+        ],
+        "hotness_basis": "地铁 / 规则 / 悬疑 / 反差 / heat 85 / mock",
+        "commercial_angle": "末班车里熟人接连求救，规则只允许回复一次。",
+        "priority": 12,
+        "core_conflict": "末班车里熟人接连求救，规则只允许回复一次。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "规则怪谈"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 85,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 85,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 85
+        },
+        "rank": 12
+      },
+      {
+        "candidate_id": "20260704-topic-05",
+        "working_title": "会议室里他们让我背锅",
+        "slug": "topic-13",
+        "genre": "职场爽文",
+        "theme": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+        "type": "职场爽文",
+        "target_audience": "职场爽文读者",
+        "trend_signals": [
+          "职场",
+          "证据",
+          "公开打脸",
+          "主推"
+        ],
+        "hotness_basis": "职场 / 证据 / 公开打脸 / 主推 / heat 83 / mock",
+        "commercial_angle": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+        "priority": 13,
+        "core_conflict": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+        "protagonist": "掌握关键日志的项目负责人",
+        "obstacle_or_antagonist": "临时甩锅的管理层",
+        "twist_direction": "客户代表正好在场，看见自动同步报告里的违规指令。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "职场爽文"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 85,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 83,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 84
+        },
+        "rank": 13
+      },
+      {
+        "candidate_id": "20260704-topic-15",
+        "working_title": "会议室里他们让我背锅·反击版",
+        "slug": "topic-14",
+        "genre": "职场爽文",
+        "theme": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+        "type": "职场爽文",
+        "target_audience": "职场爽文读者",
+        "trend_signals": [
+          "职场",
+          "证据",
+          "公开打脸",
+          "反击"
+        ],
+        "hotness_basis": "职场 / 证据 / 公开打脸 / 反击 / heat 80 / mock",
+        "commercial_angle": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+        "priority": 14,
+        "core_conflict": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "职场爽文"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 85,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 80,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 83
+        },
+        "rank": 14
+      },
+      {
+        "candidate_id": "20260704-topic-24",
+        "working_title": "我停掉转账后全家开始审判我·反差版",
+        "slug": "topic-15",
+        "genre": "亲情撕裂",
+        "theme": "长期供养者停止无底线转账，亲属关系当场反噬。",
+        "type": "亲情撕裂",
+        "target_audience": "亲情撕裂读者",
+        "trend_signals": [
+          "亲情",
+          "现实",
+          "清算",
+          "反差"
+        ],
+        "hotness_basis": "亲情 / 现实 / 清算 / 反差 / heat 83 / mock",
+        "commercial_angle": "长期供养者停止无底线转账，亲属关系当场反噬。",
+        "priority": 15,
+        "core_conflict": "长期供养者停止无底线转账，亲属关系当场反噬。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "亲情撕裂"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 84,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 83,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 84
+        },
+        "rank": 15
+      },
+      {
+        "candidate_id": "20260704-topic-10",
+        "working_title": "我被系统判定为无效继承人",
+        "slug": "topic-16",
+        "genre": "系统流",
+        "theme": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+        "type": "系统流",
+        "target_audience": "系统流读者",
+        "trend_signals": [
+          "系统",
+          "继承",
+          "漏洞",
+          "主推"
+        ],
+        "hotness_basis": "系统 / 继承 / 漏洞 / 主推 / heat 81 / mock",
+        "commercial_angle": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+        "priority": 16,
+        "core_conflict": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+        "protagonist": "被家族系统排除的继承人",
+        "obstacle_or_antagonist": "篡改评分规则的家族代理人",
+        "twist_direction": "无效继承人反而拥有唯一的规则修复权限。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "系统流"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 84,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 81,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 83
+        },
+        "rank": 16
+      },
+      {
+        "candidate_id": "20260704-topic-07",
+        "working_title": "养老院账本失踪的那一晚",
+        "slug": "topic-17",
+        "genre": "现实悬疑",
+        "theme": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+        "type": "现实悬疑",
+        "target_audience": "现实悬疑读者",
+        "trend_signals": [
+          "养老",
+          "骗局",
+          "证据",
+          "主推"
+        ],
+        "hotness_basis": "养老 / 骗局 / 证据 / 主推 / heat 80 / mock",
+        "commercial_angle": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+        "priority": 17,
+        "core_conflict": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+        "protagonist": "替母亲追账的普通女儿",
+        "obstacle_or_antagonist": "披着公益外衣的机构负责人",
+        "twist_direction": "账本没有丢，而是被母亲藏在所有人忽略的旧收音机里。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "现实悬疑"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 84,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 80,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 82
+        },
+        "rank": 17
+      },
+      {
+        "candidate_id": "20260704-topic-20",
+        "working_title": "我被系统判定为无效继承人·反击版",
+        "slug": "topic-18",
+        "genre": "系统流",
+        "theme": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+        "type": "系统流",
+        "target_audience": "系统流读者",
+        "trend_signals": [
+          "系统",
+          "继承",
+          "漏洞",
+          "反击"
+        ],
+        "hotness_basis": "系统 / 继承 / 漏洞 / 反击 / heat 78 / mock",
+        "commercial_angle": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+        "priority": 18,
+        "core_conflict": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "系统流"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 84,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 78,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 81
+        },
+        "rank": 18
+      },
+      {
+        "candidate_id": "20260704-topic-17",
+        "working_title": "养老院账本失踪的那一晚·反击版",
+        "slug": "topic-19",
+        "genre": "现实悬疑",
+        "theme": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+        "type": "现实悬疑",
+        "target_audience": "现实悬疑读者",
+        "trend_signals": [
+          "养老",
+          "骗局",
+          "证据",
+          "反击"
+        ],
+        "hotness_basis": "养老 / 骗局 / 证据 / 反击 / heat 77 / mock",
+        "commercial_angle": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+        "priority": 19,
+        "core_conflict": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "现实悬疑"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 84,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 77,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 81
+        },
+        "rank": 19
+      },
+      {
+        "candidate_id": "20260704-topic-08",
+        "working_title": "AI替我写辞职信后老板慌了",
+        "slug": "ai",
+        "genre": "职场逆袭",
+        "theme": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+        "type": "职场逆袭",
+        "target_audience": "职场逆袭读者",
+        "trend_signals": [
+          "AI",
+          "辞职",
+          "谈判",
+          "主推"
+        ],
+        "hotness_basis": "AI / 辞职 / 谈判 / 主推 / heat 88 / mock",
+        "commercial_angle": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+        "priority": 20,
+        "core_conflict": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+        "protagonist": "被算法低估的基层员工",
+        "obstacle_or_antagonist": "把所有成果归给工具的老板",
+        "twist_direction": "真正不可替代的不是工具，而是训练出流程的人。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "职场逆袭"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 83,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 88,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 86
+        },
+        "rank": 20
+      },
+      {
+        "candidate_id": "20260704-topic-18",
+        "working_title": "AI替我写辞职信后老板慌了·反击版",
+        "slug": "ai",
+        "genre": "职场逆袭",
+        "theme": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+        "type": "职场逆袭",
+        "target_audience": "职场逆袭读者",
+        "trend_signals": [
+          "AI",
+          "辞职",
+          "谈判",
+          "反击"
+        ],
+        "hotness_basis": "AI / 辞职 / 谈判 / 反击 / heat 85 / mock",
+        "commercial_angle": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+        "priority": 21,
+        "core_conflict": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "职场逆袭"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 83,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 85,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 84
+        },
+        "rank": 21
+      },
+      {
+        "candidate_id": "20260704-topic-26",
+        "working_title": "退婚后我成了新规则的制定者·反差版",
+        "slug": "topic-22",
+        "genre": "女频爽文",
+        "theme": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+        "type": "女频爽文",
+        "target_audience": "女频爽文读者",
+        "trend_signals": [
+          "退婚",
+          "创业",
+          "爽点",
+          "反差"
+        ],
+        "hotness_basis": "退婚 / 创业 / 爽点 / 反差 / heat 81 / mock",
+        "commercial_angle": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+        "priority": 22,
+        "core_conflict": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "女频爽文"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 83,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 81,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 82
+        },
+        "rank": 22
+      },
+      {
+        "candidate_id": "20260704-topic-09",
+        "working_title": "直播间第十分钟不能说真话",
+        "slug": "topic-23",
+        "genre": "直播舆论",
+        "theme": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+        "type": "直播舆论",
+        "target_audience": "直播舆论读者",
+        "trend_signals": [
+          "直播",
+          "舆论",
+          "规则",
+          "主推"
+        ],
+        "hotness_basis": "直播 / 舆论 / 规则 / 主推 / heat 85 / mock",
+        "commercial_angle": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+        "priority": 23,
+        "core_conflict": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+        "protagonist": "临时救场的幕后运营",
+        "obstacle_or_antagonist": "试图操控舆论的品牌方",
+        "twist_direction": "主角提前把真相拆成十分钟前后的证据链，避开封禁规则。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "直播舆论"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 82,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 85,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 84
+        },
+        "rank": 23
+      },
+      {
+        "candidate_id": "20260704-topic-19",
+        "working_title": "直播间第十分钟不能说真话·反击版",
+        "slug": "topic-24",
+        "genre": "直播舆论",
+        "theme": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+        "type": "直播舆论",
+        "target_audience": "直播舆论读者",
+        "trend_signals": [
+          "直播",
+          "舆论",
+          "规则",
+          "反击"
+        ],
+        "hotness_basis": "直播 / 舆论 / 规则 / 反击 / heat 82 / mock",
+        "commercial_angle": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+        "priority": 24,
+        "core_conflict": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "直播舆论"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 82,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 82,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 82
+        },
+        "rank": 24
+      },
+      {
+        "candidate_id": "20260704-topic-25",
+        "working_title": "会议室里他们让我背锅·反差版",
+        "slug": "topic-25",
+        "genre": "职场爽文",
+        "theme": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+        "type": "职场爽文",
+        "target_audience": "职场爽文读者",
+        "trend_signals": [
+          "职场",
+          "证据",
+          "公开打脸",
+          "反差"
+        ],
+        "hotness_basis": "职场 / 证据 / 公开打脸 / 反差 / heat 82 / mock",
+        "commercial_angle": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+        "priority": 25,
+        "core_conflict": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "职场爽文"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 82,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 82,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 82
+        },
+        "rank": 25
+      },
+      {
+        "candidate_id": "20260704-topic-30",
+        "working_title": "我被系统判定为无效继承人·反差版",
+        "slug": "topic-26",
+        "genre": "系统流",
+        "theme": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+        "type": "系统流",
+        "target_audience": "系统流读者",
+        "trend_signals": [
+          "系统",
+          "继承",
+          "漏洞",
+          "反差"
+        ],
+        "hotness_basis": "系统 / 继承 / 漏洞 / 反差 / heat 80 / mock",
+        "commercial_angle": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+        "priority": 26,
+        "core_conflict": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "系统流"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 81,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 80,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 81
+        },
+        "rank": 26
+      },
+      {
+        "candidate_id": "20260704-topic-27",
+        "working_title": "养老院账本失踪的那一晚·反差版",
+        "slug": "topic-27",
+        "genre": "现实悬疑",
+        "theme": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+        "type": "现实悬疑",
+        "target_audience": "现实悬疑读者",
+        "trend_signals": [
+          "养老",
+          "骗局",
+          "证据",
+          "反差"
+        ],
+        "hotness_basis": "养老 / 骗局 / 证据 / 反差 / heat 79 / mock",
+        "commercial_angle": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+        "priority": 27,
+        "core_conflict": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "现实悬疑"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 81,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 79,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 80
+        },
+        "rank": 27
+      },
+      {
+        "candidate_id": "20260704-topic-28",
+        "working_title": "AI替我写辞职信后老板慌了·反差版",
+        "slug": "ai",
+        "genre": "职场逆袭",
+        "theme": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+        "type": "职场逆袭",
+        "target_audience": "职场逆袭读者",
+        "trend_signals": [
+          "AI",
+          "辞职",
+          "谈判",
+          "反差"
+        ],
+        "hotness_basis": "AI / 辞职 / 谈判 / 反差 / heat 87 / mock",
+        "commercial_angle": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+        "priority": 28,
+        "core_conflict": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "职场逆袭"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 80,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 87,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 84
+        },
+        "rank": 28
+      },
+      {
+        "candidate_id": "20260704-topic-29",
+        "working_title": "直播间第十分钟不能说真话·反差版",
+        "slug": "topic-29",
+        "genre": "直播舆论",
+        "theme": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+        "type": "直播舆论",
+        "target_audience": "直播舆论读者",
+        "trend_signals": [
+          "直播",
+          "舆论",
+          "规则",
+          "反差"
+        ],
+        "hotness_basis": "直播 / 舆论 / 规则 / 反差 / heat 84 / mock",
+        "commercial_angle": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+        "priority": 29,
+        "core_conflict": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+        "protagonist": "被低估的主角",
+        "obstacle_or_antagonist": "试图夺走资源的对手",
+        "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+        "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+        "writing_skill": {
+          "skill_id": "instant-pressure-opening",
+          "label": "前三百字压迫开局",
+          "agent": "writer",
+          "use_when": [
+            "直播舆论"
+          ],
+          "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+        },
+        "scores": {
+          "innovation": 79,
+          "conflict": 82,
+          "twist": 82,
+          "platform_fit": 84,
+          "hook": 86,
+          "emotion": 80,
+          "trend_heat": 84,
+          "feedback_bonus": 0,
+          "diversity_bonus": 4,
+          "repetition_penalty": 0,
+          "total": 82
+        },
+        "rank": 29
+      }
+    ]
   },
-  "selected_top_n": [],
-  "reasons": [],
-  "updated_at": ""
+  "selected_top_n": [
+    {
+      "candidate_id": "20260704-topic-12",
+      "working_title": "替身合约到期后全城开始找我·反击版",
+      "slug": "topic-0",
+      "genre": "豪门婚恋",
+      "theme": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "type": "豪门婚恋",
+      "target_audience": "豪门婚恋读者",
+      "trend_signals": [
+        "替身",
+        "豪门",
+        "身份反转",
+        "反击"
+      ],
+      "hotness_basis": "替身 / 豪门 / 身份反转 / 反击 / heat 86 / mock",
+      "commercial_angle": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "priority": 0,
+      "core_conflict": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "豪门婚恋"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 91,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 86,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 89
+      },
+      "rank": 0
+    },
+    {
+      "candidate_id": "20260704-topic-02",
+      "working_title": "替身合约到期后全城开始找我",
+      "slug": "topic-1",
+      "genre": "豪门婚恋",
+      "theme": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "type": "豪门婚恋",
+      "target_audience": "豪门婚恋读者",
+      "trend_signals": [
+        "替身",
+        "豪门",
+        "身份反转",
+        "主推"
+      ],
+      "hotness_basis": "替身 / 豪门 / 身份反转 / 主推 / heat 89 / mock",
+      "commercial_angle": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "priority": 1,
+      "core_conflict": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "protagonist": "被迫签下替身协议的女主",
+      "obstacle_or_antagonist": "把婚姻当生意的豪门继承人",
+      "twist_direction": "真正能救项目的人不是白月光，而是被轻视的替身。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "豪门婚恋"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 90,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 89,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 90
+      },
+      "rank": 1
+    },
+    {
+      "candidate_id": "20260704-topic-11",
+      "working_title": "被裁当天我接管了老板的直播间·反击版",
+      "slug": "topic-2",
+      "genre": "都市逆袭",
+      "theme": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "type": "都市逆袭",
+      "target_audience": "都市逆袭读者",
+      "trend_signals": [
+        "直播",
+        "职场",
+        "反转",
+        "反击"
+      ],
+      "hotness_basis": "直播 / 职场 / 反转 / 反击 / heat 88 / mock",
+      "commercial_angle": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "priority": 2,
+      "core_conflict": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "都市逆袭"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 89,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 88,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 89
+      },
+      "rank": 2
+    },
+    {
+      "candidate_id": "20260704-topic-01",
+      "working_title": "被裁当天我接管了老板的直播间",
+      "slug": "topic-3",
+      "genre": "都市逆袭",
+      "theme": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "type": "都市逆袭",
+      "target_audience": "都市逆袭读者",
+      "trend_signals": [
+        "直播",
+        "职场",
+        "反转",
+        "主推"
+      ],
+      "hotness_basis": "直播 / 职场 / 反转 / 主推 / heat 91 / mock",
+      "commercial_angle": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "priority": 3,
+      "core_conflict": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "protagonist": "被低估的运营新人",
+      "obstacle_or_antagonist": "抢功劳的上级和失控舆论",
+      "twist_direction": "老板以为能封号，结果直播间权限早已绑定主角身份。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "都市逆袭"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 88,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 91,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 90
+      },
+      "rank": 3
+    },
+    {
+      "candidate_id": "20260704-topic-22",
+      "working_title": "替身合约到期后全城开始找我·反差版",
+      "slug": "topic-4",
+      "genre": "豪门婚恋",
+      "theme": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "type": "豪门婚恋",
+      "target_audience": "豪门婚恋读者",
+      "trend_signals": [
+        "替身",
+        "豪门",
+        "身份反转",
+        "反差"
+      ],
+      "hotness_basis": "替身 / 豪门 / 身份反转 / 反差 / heat 88 / mock",
+      "commercial_angle": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "priority": 4,
+      "core_conflict": "合约替身退出豪门局，却成为唯一能救盘的人。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "豪门婚恋"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 88,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 88,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 88
+      },
+      "rank": 4
+    },
+    {
+      "candidate_id": "20260704-topic-03",
+      "working_title": "末班地铁禁止回复第三条消息",
+      "slug": "topic-5",
+      "genre": "规则怪谈",
+      "theme": "末班车里熟人接连求救，规则只允许回复一次。",
+      "type": "规则怪谈",
+      "target_audience": "规则怪谈读者",
+      "trend_signals": [
+        "地铁",
+        "规则",
+        "悬疑",
+        "主推"
+      ],
+      "hotness_basis": "地铁 / 规则 / 悬疑 / 主推 / heat 86 / mock",
+      "commercial_angle": "末班车里熟人接连求救，规则只允许回复一次。",
+      "priority": 5,
+      "core_conflict": "末班车里熟人接连求救，规则只允许回复一次。",
+      "protagonist": "加班到深夜的普通乘客",
+      "obstacle_or_antagonist": "不断模仿熟人的未知乘客",
+      "twist_direction": "真正被困住的不是主角，而是所有回过第三条消息的人。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "规则怪谈"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 87,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 86,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 87
+      },
+      "rank": 5
+    },
+    {
+      "candidate_id": "20260704-topic-13",
+      "working_title": "末班地铁禁止回复第三条消息·反击版",
+      "slug": "topic-6",
+      "genre": "规则怪谈",
+      "theme": "末班车里熟人接连求救，规则只允许回复一次。",
+      "type": "规则怪谈",
+      "target_audience": "规则怪谈读者",
+      "trend_signals": [
+        "地铁",
+        "规则",
+        "悬疑",
+        "反击"
+      ],
+      "hotness_basis": "地铁 / 规则 / 悬疑 / 反击 / heat 83 / mock",
+      "commercial_angle": "末班车里熟人接连求救，规则只允许回复一次。",
+      "priority": 6,
+      "core_conflict": "末班车里熟人接连求救，规则只允许回复一次。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "规则怪谈"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 87,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 83,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 85
+      },
+      "rank": 6
+    },
+    {
+      "candidate_id": "20260704-topic-21",
+      "working_title": "被裁当天我接管了老板的直播间·反差版",
+      "slug": "topic-7",
+      "genre": "都市逆袭",
+      "theme": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "type": "都市逆袭",
+      "target_audience": "都市逆袭读者",
+      "trend_signals": [
+        "直播",
+        "职场",
+        "反转",
+        "反差"
+      ],
+      "hotness_basis": "直播 / 职场 / 反转 / 反差 / heat 90 / mock",
+      "commercial_angle": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "priority": 7,
+      "core_conflict": "公开裁员后，主角用隐藏系统夺回直播间控制权。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "都市逆袭"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 86,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 90,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 88
+      },
+      "rank": 7
+    },
+    {
+      "candidate_id": "20260704-topic-04",
+      "working_title": "我停掉转账后全家开始审判我",
+      "slug": "topic-8",
+      "genre": "亲情撕裂",
+      "theme": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "type": "亲情撕裂",
+      "target_audience": "亲情撕裂读者",
+      "trend_signals": [
+        "亲情",
+        "现实",
+        "清算",
+        "主推"
+      ],
+      "hotness_basis": "亲情 / 现实 / 清算 / 主推 / heat 84 / mock",
+      "commercial_angle": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "priority": 8,
+      "core_conflict": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "protagonist": "长期供养家庭的长女",
+      "obstacle_or_antagonist": "把牺牲视为理所当然的亲属",
+      "twist_direction": "她公开所有债务和病历，真正欠债的人被推到镜头前。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "亲情撕裂"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 86,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 84,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 85
+      },
+      "rank": 8
+    },
+    {
+      "candidate_id": "20260704-topic-06",
+      "working_title": "退婚后我成了新规则的制定者",
+      "slug": "topic-9",
+      "genre": "女频爽文",
+      "theme": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "type": "女频爽文",
+      "target_audience": "女频爽文读者",
+      "trend_signals": [
+        "退婚",
+        "创业",
+        "爽点",
+        "主推"
+      ],
+      "hotness_basis": "退婚 / 创业 / 爽点 / 主推 / heat 82 / mock",
+      "commercial_angle": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "priority": 9,
+      "core_conflict": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "protagonist": "被退婚羞辱的创业者",
+      "obstacle_or_antagonist": "用婚约交换资源的前未婚夫",
+      "twist_direction": "她不是来求入场，而是被平台邀请来重写规则。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "女频爽文"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 86,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 82,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 84
+      },
+      "rank": 9
+    },
+    {
+      "candidate_id": "20260704-topic-14",
+      "working_title": "我停掉转账后全家开始审判我·反击版",
+      "slug": "topic-10",
+      "genre": "亲情撕裂",
+      "theme": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "type": "亲情撕裂",
+      "target_audience": "亲情撕裂读者",
+      "trend_signals": [
+        "亲情",
+        "现实",
+        "清算",
+        "反击"
+      ],
+      "hotness_basis": "亲情 / 现实 / 清算 / 反击 / heat 81 / mock",
+      "commercial_angle": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "priority": 10,
+      "core_conflict": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "亲情撕裂"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 86,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 81,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 84
+      },
+      "rank": 10
+    },
+    {
+      "candidate_id": "20260704-topic-16",
+      "working_title": "退婚后我成了新规则的制定者·反击版",
+      "slug": "topic-11",
+      "genre": "女频爽文",
+      "theme": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "type": "女频爽文",
+      "target_audience": "女频爽文读者",
+      "trend_signals": [
+        "退婚",
+        "创业",
+        "爽点",
+        "反击"
+      ],
+      "hotness_basis": "退婚 / 创业 / 爽点 / 反击 / heat 79 / mock",
+      "commercial_angle": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "priority": 11,
+      "core_conflict": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "女频爽文"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 86,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 79,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 83
+      },
+      "rank": 11
+    },
+    {
+      "candidate_id": "20260704-topic-23",
+      "working_title": "末班地铁禁止回复第三条消息·反差版",
+      "slug": "topic-12",
+      "genre": "规则怪谈",
+      "theme": "末班车里熟人接连求救，规则只允许回复一次。",
+      "type": "规则怪谈",
+      "target_audience": "规则怪谈读者",
+      "trend_signals": [
+        "地铁",
+        "规则",
+        "悬疑",
+        "反差"
+      ],
+      "hotness_basis": "地铁 / 规则 / 悬疑 / 反差 / heat 85 / mock",
+      "commercial_angle": "末班车里熟人接连求救，规则只允许回复一次。",
+      "priority": 12,
+      "core_conflict": "末班车里熟人接连求救，规则只允许回复一次。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "规则怪谈"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 85,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 85,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 85
+      },
+      "rank": 12
+    },
+    {
+      "candidate_id": "20260704-topic-05",
+      "working_title": "会议室里他们让我背锅",
+      "slug": "topic-13",
+      "genre": "职场爽文",
+      "theme": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "type": "职场爽文",
+      "target_audience": "职场爽文读者",
+      "trend_signals": [
+        "职场",
+        "证据",
+        "公开打脸",
+        "主推"
+      ],
+      "hotness_basis": "职场 / 证据 / 公开打脸 / 主推 / heat 83 / mock",
+      "commercial_angle": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "priority": 13,
+      "core_conflict": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "protagonist": "掌握关键日志的项目负责人",
+      "obstacle_or_antagonist": "临时甩锅的管理层",
+      "twist_direction": "客户代表正好在场，看见自动同步报告里的违规指令。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "职场爽文"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 85,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 83,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 84
+      },
+      "rank": 13
+    },
+    {
+      "candidate_id": "20260704-topic-15",
+      "working_title": "会议室里他们让我背锅·反击版",
+      "slug": "topic-14",
+      "genre": "职场爽文",
+      "theme": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "type": "职场爽文",
+      "target_audience": "职场爽文读者",
+      "trend_signals": [
+        "职场",
+        "证据",
+        "公开打脸",
+        "反击"
+      ],
+      "hotness_basis": "职场 / 证据 / 公开打脸 / 反击 / heat 80 / mock",
+      "commercial_angle": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "priority": 14,
+      "core_conflict": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "职场爽文"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 85,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 80,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 83
+      },
+      "rank": 14
+    },
+    {
+      "candidate_id": "20260704-topic-24",
+      "working_title": "我停掉转账后全家开始审判我·反差版",
+      "slug": "topic-15",
+      "genre": "亲情撕裂",
+      "theme": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "type": "亲情撕裂",
+      "target_audience": "亲情撕裂读者",
+      "trend_signals": [
+        "亲情",
+        "现实",
+        "清算",
+        "反差"
+      ],
+      "hotness_basis": "亲情 / 现实 / 清算 / 反差 / heat 83 / mock",
+      "commercial_angle": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "priority": 15,
+      "core_conflict": "长期供养者停止无底线转账，亲属关系当场反噬。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "亲情撕裂"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 84,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 83,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 84
+      },
+      "rank": 15
+    },
+    {
+      "candidate_id": "20260704-topic-10",
+      "working_title": "我被系统判定为无效继承人",
+      "slug": "topic-16",
+      "genre": "系统流",
+      "theme": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "type": "系统流",
+      "target_audience": "系统流读者",
+      "trend_signals": [
+        "系统",
+        "继承",
+        "漏洞",
+        "主推"
+      ],
+      "hotness_basis": "系统 / 继承 / 漏洞 / 主推 / heat 81 / mock",
+      "commercial_angle": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "priority": 16,
+      "core_conflict": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "protagonist": "被家族系统排除的继承人",
+      "obstacle_or_antagonist": "篡改评分规则的家族代理人",
+      "twist_direction": "无效继承人反而拥有唯一的规则修复权限。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "系统流"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 84,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 81,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 83
+      },
+      "rank": 16
+    },
+    {
+      "candidate_id": "20260704-topic-07",
+      "working_title": "养老院账本失踪的那一晚",
+      "slug": "topic-17",
+      "genre": "现实悬疑",
+      "theme": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "type": "现实悬疑",
+      "target_audience": "现实悬疑读者",
+      "trend_signals": [
+        "养老",
+        "骗局",
+        "证据",
+        "主推"
+      ],
+      "hotness_basis": "养老 / 骗局 / 证据 / 主推 / heat 80 / mock",
+      "commercial_angle": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "priority": 17,
+      "core_conflict": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "protagonist": "替母亲追账的普通女儿",
+      "obstacle_or_antagonist": "披着公益外衣的机构负责人",
+      "twist_direction": "账本没有丢，而是被母亲藏在所有人忽略的旧收音机里。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "现实悬疑"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 84,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 80,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 82
+      },
+      "rank": 17
+    },
+    {
+      "candidate_id": "20260704-topic-20",
+      "working_title": "我被系统判定为无效继承人·反击版",
+      "slug": "topic-18",
+      "genre": "系统流",
+      "theme": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "type": "系统流",
+      "target_audience": "系统流读者",
+      "trend_signals": [
+        "系统",
+        "继承",
+        "漏洞",
+        "反击"
+      ],
+      "hotness_basis": "系统 / 继承 / 漏洞 / 反击 / heat 78 / mock",
+      "commercial_angle": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "priority": 18,
+      "core_conflict": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "系统流"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 84,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 78,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 81
+      },
+      "rank": 18
+    },
+    {
+      "candidate_id": "20260704-topic-17",
+      "working_title": "养老院账本失踪的那一晚·反击版",
+      "slug": "topic-19",
+      "genre": "现实悬疑",
+      "theme": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "type": "现实悬疑",
+      "target_audience": "现实悬疑读者",
+      "trend_signals": [
+        "养老",
+        "骗局",
+        "证据",
+        "反击"
+      ],
+      "hotness_basis": "养老 / 骗局 / 证据 / 反击 / heat 77 / mock",
+      "commercial_angle": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "priority": 19,
+      "core_conflict": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "现实悬疑"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 84,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 77,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 81
+      },
+      "rank": 19
+    },
+    {
+      "candidate_id": "20260704-topic-08",
+      "working_title": "AI替我写辞职信后老板慌了",
+      "slug": "ai",
+      "genre": "职场逆袭",
+      "theme": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "type": "职场逆袭",
+      "target_audience": "职场逆袭读者",
+      "trend_signals": [
+        "AI",
+        "辞职",
+        "谈判",
+        "主推"
+      ],
+      "hotness_basis": "AI / 辞职 / 谈判 / 主推 / heat 88 / mock",
+      "commercial_angle": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "priority": 20,
+      "core_conflict": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "protagonist": "被算法低估的基层员工",
+      "obstacle_or_antagonist": "把所有成果归给工具的老板",
+      "twist_direction": "真正不可替代的不是工具，而是训练出流程的人。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "职场逆袭"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 83,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 88,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 86
+      },
+      "rank": 20
+    },
+    {
+      "candidate_id": "20260704-topic-18",
+      "working_title": "AI替我写辞职信后老板慌了·反击版",
+      "slug": "ai",
+      "genre": "职场逆袭",
+      "theme": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "type": "职场逆袭",
+      "target_audience": "职场逆袭读者",
+      "trend_signals": [
+        "AI",
+        "辞职",
+        "谈判",
+        "反击"
+      ],
+      "hotness_basis": "AI / 辞职 / 谈判 / 反击 / heat 85 / mock",
+      "commercial_angle": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "priority": 21,
+      "core_conflict": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "职场逆袭"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 83,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 85,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 84
+      },
+      "rank": 21
+    },
+    {
+      "candidate_id": "20260704-topic-26",
+      "working_title": "退婚后我成了新规则的制定者·反差版",
+      "slug": "topic-22",
+      "genre": "女频爽文",
+      "theme": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "type": "女频爽文",
+      "target_audience": "女频爽文读者",
+      "trend_signals": [
+        "退婚",
+        "创业",
+        "爽点",
+        "反差"
+      ],
+      "hotness_basis": "退婚 / 创业 / 爽点 / 反差 / heat 81 / mock",
+      "commercial_angle": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "priority": 22,
+      "core_conflict": "退婚宴上被羞辱的人，反手拿到行业规则制定权。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "女频爽文"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 83,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 81,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 82
+      },
+      "rank": 22
+    },
+    {
+      "candidate_id": "20260704-topic-09",
+      "working_title": "直播间第十分钟不能说真话",
+      "slug": "topic-23",
+      "genre": "直播舆论",
+      "theme": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "type": "直播舆论",
+      "target_audience": "直播舆论读者",
+      "trend_signals": [
+        "直播",
+        "舆论",
+        "规则",
+        "主推"
+      ],
+      "hotness_basis": "直播 / 舆论 / 规则 / 主推 / heat 85 / mock",
+      "commercial_angle": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "priority": 23,
+      "core_conflict": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "protagonist": "临时救场的幕后运营",
+      "obstacle_or_antagonist": "试图操控舆论的品牌方",
+      "twist_direction": "主角提前把真相拆成十分钟前后的证据链，避开封禁规则。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "直播舆论"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 82,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 85,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 84
+      },
+      "rank": 23
+    },
+    {
+      "candidate_id": "20260704-topic-19",
+      "working_title": "直播间第十分钟不能说真话·反击版",
+      "slug": "topic-24",
+      "genre": "直播舆论",
+      "theme": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "type": "直播舆论",
+      "target_audience": "直播舆论读者",
+      "trend_signals": [
+        "直播",
+        "舆论",
+        "规则",
+        "反击"
+      ],
+      "hotness_basis": "直播 / 舆论 / 规则 / 反击 / heat 82 / mock",
+      "commercial_angle": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "priority": 24,
+      "core_conflict": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "直播舆论"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 82,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 82,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 82
+      },
+      "rank": 24
+    },
+    {
+      "candidate_id": "20260704-topic-25",
+      "working_title": "会议室里他们让我背锅·反差版",
+      "slug": "topic-25",
+      "genre": "职场爽文",
+      "theme": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "type": "职场爽文",
+      "target_audience": "职场爽文读者",
+      "trend_signals": [
+        "职场",
+        "证据",
+        "公开打脸",
+        "反差"
+      ],
+      "hotness_basis": "职场 / 证据 / 公开打脸 / 反差 / heat 82 / mock",
+      "commercial_angle": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "priority": 25,
+      "core_conflict": "产品事故当天，项目负责人用同步日志反杀甩锅者。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "职场爽文"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 82,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 82,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 82
+      },
+      "rank": 25
+    },
+    {
+      "candidate_id": "20260704-topic-30",
+      "working_title": "我被系统判定为无效继承人·反差版",
+      "slug": "topic-26",
+      "genre": "系统流",
+      "theme": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "type": "系统流",
+      "target_audience": "系统流读者",
+      "trend_signals": [
+        "系统",
+        "继承",
+        "漏洞",
+        "反差"
+      ],
+      "hotness_basis": "系统 / 继承 / 漏洞 / 反差 / heat 80 / mock",
+      "commercial_angle": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "priority": 26,
+      "core_conflict": "继承资格被系统否决后，主角发现规则本身有漏洞。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "系统流"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 81,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 80,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 81
+      },
+      "rank": 26
+    },
+    {
+      "candidate_id": "20260704-topic-27",
+      "working_title": "养老院账本失踪的那一晚·反差版",
+      "slug": "topic-27",
+      "genre": "现实悬疑",
+      "theme": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "type": "现实悬疑",
+      "target_audience": "现实悬疑读者",
+      "trend_signals": [
+        "养老",
+        "骗局",
+        "证据",
+        "反差"
+      ],
+      "hotness_basis": "养老 / 骗局 / 证据 / 反差 / heat 79 / mock",
+      "commercial_angle": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "priority": 27,
+      "core_conflict": "一份账本牵出养老骗局，主角必须在天亮前找回证据。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "现实悬疑"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 81,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 79,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 80
+      },
+      "rank": 27
+    },
+    {
+      "candidate_id": "20260704-topic-28",
+      "working_title": "AI替我写辞职信后老板慌了·反差版",
+      "slug": "ai",
+      "genre": "职场逆袭",
+      "theme": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "type": "职场逆袭",
+      "target_audience": "职场逆袭读者",
+      "trend_signals": [
+        "AI",
+        "辞职",
+        "谈判",
+        "反差"
+      ],
+      "hotness_basis": "AI / 辞职 / 谈判 / 反差 / heat 87 / mock",
+      "commercial_angle": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "priority": 28,
+      "core_conflict": "一封辞职信暴露公司真实依赖，普通员工获得谈判权。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "职场逆袭"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 80,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 87,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 84
+      },
+      "rank": 28
+    },
+    {
+      "candidate_id": "20260704-topic-29",
+      "working_title": "直播间第十分钟不能说真话·反差版",
+      "slug": "topic-29",
+      "genre": "直播舆论",
+      "theme": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "type": "直播舆论",
+      "target_audience": "直播舆论读者",
+      "trend_signals": [
+        "直播",
+        "舆论",
+        "规则",
+        "反差"
+      ],
+      "hotness_basis": "直播 / 舆论 / 规则 / 反差 / heat 84 / mock",
+      "commercial_angle": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "priority": 29,
+      "core_conflict": "带货事故中，主播发现第十分钟说真话会触发封禁。",
+      "protagonist": "被低估的主角",
+      "obstacle_or_antagonist": "试图夺走资源的对手",
+      "twist_direction": "真正掌握规则的人在最后一刻反转局面。",
+      "monetization_hook": "前三百字给压力，中段连续打脸，结尾兑现身份或资源反转。",
+      "writing_skill": {
+        "skill_id": "instant-pressure-opening",
+        "label": "前三百字压迫开局",
+        "agent": "writer",
+        "use_when": [
+          "直播舆论"
+        ],
+        "guidance": "开头直接给羞辱、损失、倒计时或公开审判，避免慢热铺垫。"
+      },
+      "scores": {
+        "innovation": 79,
+        "conflict": 82,
+        "twist": 82,
+        "platform_fit": 84,
+        "hook": 86,
+        "emotion": 80,
+        "trend_heat": 84,
+        "feedback_bonus": 0,
+        "diversity_bonus": 4,
+        "repetition_penalty": 0,
+        "total": 82
+      },
+      "rank": 29
+    }
+  ],
+  "updated_at": "2026-07-03T16:00:44.744Z"
 }

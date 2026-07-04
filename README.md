@@ -116,7 +116,16 @@ rg --files
 
 ## M3.1 Web Dashboard
 
-M3.1 提供最小可用网页后台，用户可以在首页点击“开始今天创作”，触发现有 M2 mock Workflow Engine，并查看 Pipeline 状态、生成文件和 System Health 结果。
+M3.1 提供可本地运行的网页后台，用户可以在首页点击“开始创作”，触发现有 Workflow Engine，并查看推荐主题、任务队列、作品库和右侧详情面板。
+
+当前 Dashboard 已具备：
+
+- 推荐主题刷新与“用此主题生成”。
+- 开始创作弹窗，支持一次创建 1-5 个生成任务。
+- 任务队列展示、任务详情、单任务删除和一键清空。
+- 作品库分页、作品详情、`read_count` / `drop_off_users` 保存。
+- 一键打开本地 `stories/` 作品库文件夹，或打开单篇作品目录。
+- 运行模式提示，支持 mock / OpenAI / DeepSeek 本地配置。
 
 本地启动：
 
@@ -131,7 +140,7 @@ pnpm dev
 http://localhost:3000
 ```
 
-M3.1 默认不调用真实 AI API；若启动前设置 `STORY_FORGE_LLM_PROVIDER=openai` / `deepseek` 和对应 API key，点击“开始今天创作”会通过 Execution Architecture 调用真实模型。M3.1 不接入发布平台，不开发用户系统、复杂图表、prompt 编辑器或 metrics 分析页。
+M3.1 默认不调用真实 AI API；若启动前设置 `STORY_FORGE_LLM_PROVIDER=openai` / `deepseek` 和对应 API key，点击“开始创作”会通过 Execution Architecture 调用真实模型。M3.1 不接入发布平台，不开发用户系统、复杂图表、prompt 编辑器或 metrics 分析页。
 
 ## Real AI Execution Architecture
 

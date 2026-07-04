@@ -27,6 +27,8 @@ V1.5 中，Story Manager 不应直接开始 Idea。它必须先完成 Content Pl
 - `planning/monthly.json`
 - `planning/strategy.md`
 - `knowledge/`，若目录不存在或为空，则视为暂无额外知识输入
+- `knowledge/trends.json`，可选的本地热点与热榜输入摘要
+- `knowledge/feedback_learning.json`，由人工反馈回填形成的本地学习档案
 - 当前故事目录下已存在的产物文件
 
 ## 必须输出
@@ -37,6 +39,7 @@ V1.5 中，Story Manager 不应直接开始 Idea。它必须先完成 Content Pl
 - 每篇入选故事的调度计划
 - 当前状态
 - `stories/{YYYYMMDD}/{slug}/story_manifest.json`
+- `agents/_learning_proposals/{YYYYMMDD}-agent-learning.md`，只作为规则更新建议，不自动覆盖 agent 文件
 
 ## 职责
 
@@ -84,8 +87,12 @@ V1.5 中，Story Manager 不应直接开始 Idea。它必须先完成 Content Pl
    - 情绪强度
    - 多样性加分
    - 近期重复扣分
+   - 热点热度
+   - 人工反馈加权
 8. 只有 `selected_top_n` 中的候选可以进入正式故事生产。
 9. Story Manager 不得新增或调用 TopicPlannerAgent、DiversityAgent 或 RankingAgent。
+10. 若接入热点或热榜数据，必须先写入 `knowledge/` 或 planning 输入摘要，再由 Story Manager 统一读取，不让子 agent 直接抓取外部平台。
+11. 人工反馈回填后，Story Manager 只能生成学习档案和规则更新 proposal；禁止自动覆盖 `agents/*.agent.md`、`rules/` 或 `prompts/`。
 
 ## 调度规则
 

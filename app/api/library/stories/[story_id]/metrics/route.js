@@ -1,18 +1,16 @@
-import dashboardRuntime from "../../../scripts/dashboard_runtime.js";
+import dashboardRuntime from "../../../../../../scripts/dashboard_runtime.js";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
-export async function POST(request) {
+export async function POST(request, context) {
   try {
+    const params = await context.params;
     const payload = await request.json();
-    if (!payload.story_id) {
-      throw new Error("story_id is required.");
-    }
     const root = process.env.STORY_FORGE_DATA_ROOT || process.cwd();
-    const result = await dashboardRuntime.updateStoryMetrics(
+    const result = await dashboardRuntime.updateLibraryStoryMetrics(
       root,
-      payload.story_id,
+      decodeURIComponent(params.story_id),
       payload.read_count,
       payload.drop_off_users,
     );

@@ -10,7 +10,8 @@ export async function GET(request) {
     if (!storyId) {
       throw new Error("story_id is required.");
     }
-    const result = await dashboardRuntime.getStoryDetail(process.cwd(), storyId);
+    const root = process.env.STORY_FORGE_DATA_ROOT || process.cwd();
+    const result = await dashboardRuntime.getStoryDetail(root, storyId);
     return NextResponse.json(result);
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 400 });

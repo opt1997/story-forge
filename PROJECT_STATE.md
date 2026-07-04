@@ -1,8 +1,128 @@
 # Story Forge 项目状态
 
-更新时间：2026-07-02
+更新时间：2026-07-04
 
 这个文件是 Story Forge 的“大脑记忆”。新窗口或新的 Codex 会话接手前，先读这里，再读 `README.md`、`AGENTS.md` 和核心代码。
+
+## 0. 2026-07-04 交接快照
+
+本节记录最近一次主对话已经完成的任务，供上下文压缩或新对话接手时快速恢复。当前工作区存在大量未提交改动，后续 agent 必须先读 `git status --short` 和相关 diff，不能随意回滚。
+
+### 已完成任务
+
+- 已完成 Story Forge Dashboard 前端重设计第一阶段：
+  - 主页面仍在 `app/page.js`。
+  - 主样式仍在 `app/globals.css`。
+  - 保留 Next.js API 合约：`/api/dashboard`、`/api/start-today`、`/api/story`、`/api/story-metrics`。
+  - 新增/复用 Dashboard API：`/api/topics/*`、`/api/stories/*`、`/api/library/stories*`、`/api/tasks/clear`、`/api/folders/open`。
+  - 保留“开始创作”弹窗、运行中轮询、故事详情、read_count/drop_off_users 保存。
+- 已完成 Dashboard v0.4 调整：
+  - 删除主区“今日创作策略”展示。
+  - 当前生成监测改为“当前任务”。
+  - 当前任务新增“一键清空”。
+  - 顶部右侧移除“刷新”按钮，仅保留“开始创作”。
+  - 作品库改为读取本地完成作品库，而不是直接混用 active_run。
+- 已完成 Dashboard v0.5 调整：
+  - 主区只展示列表摘要。
+  - 作品库主区只展示：标题、创建时间、短摘要、标签、read_count、drop_off_users、保存按钮。
+  - 作品库主区不展示状态、不展示 QA 分数、不展示正文预览、不展示 pipeline logs。
+  - 只有已完成且有 `story.meta.json` + `final.md` 的文章进入作品库。
+  - 点击作品后，右侧栏切换为“作品详情”，显示标题、时间、摘要、标签、QA 分数、返工次数、日志数、阅读量、触底人数、文章状态、`final.md` 前约 900 字预览。
+  - 当前任务主区只展示：标题/task_id、创建时间、用户化状态、删除按钮。
+  - 当前任务主区不展示完整 pipeline 流，不展示 Writer/QA/Rewrite 轮次。
+  - 点击任务后，右侧栏切换为“任务详情”，显示 task_id、story_id、当前阶段、当前状态、创建/更新时间、完整 pipeline、writer_round、qa_round、rewrite_round、pipeline logs、文件状态。
+  - 未选中任何作品/任务时，右侧栏默认显示“今日创作概览”。
+  - 作品和任务互斥选中，选中态高亮。
+  - 作品库头部新增“打开文件夹”按钮，可打开本地 `stories/`。
+  - 作品库每篇作品的保存按钮后新增“打开”按钮，可打开对应作品目录。
+- 已完成 iOS 风格视觉换皮：
+  - 保持三层布局和功能不变。
+  - 将偏复古的墨黑/暖纸/墨绿视觉替换为更接近 iOS 的浅灰背景、半透明白卡片、细描边、轻阴影、系统蓝主按钮。
+  - 主要改动文件：`app/globals.css`。
+  - 侧栏从黑底改为浅色磨砂导航。
+  - 顶部命令栏改为半透明白 + blur。
+  - 卡片、弹窗、右侧栏统一为清爽白/浅灰风格。
+  - 状态色仍保留：蓝色信息、绿色完成、琥珀运行、珊瑚失败。
+- 已完成中文乱码修复：
+  - `app/page.js` 当前展示文案已恢复为正常中文。
+- 已完成 DeepSeek 本地配置指导：
+  - 用户提供过 DeepSeek API 凭据；不要把真实 key 写入仓库。
+  - 结论：DeepSeek 应使用 `DEEPSEEK_API_KEY`，填用户称为 `apisecret` 的 `sk-...` 值，不填短的 `apikey`。
+  - 模型可通过环境变量切换，例如 `STORY_FORGE_DEEPSEEK_MODEL`。
+- 已完成本地/Netlify 部署判断：
+  - Netlify 可用于轻量测试，但文章文件生成和持久化更适合本地运行。
+  - 用户当前倾向：在这台电脑操作时使用本地部署/本地运行，避免把大文章长期放 Netlify。
+
+### 验证记录
+
+- `npm run build` 已多次通过。
+  - 在沙盒内会因 Windows npm cache 权限报 `EPERM mkdir C:\Users\Administrator\AppData\Local\npm-cache\_cacache\tmp`。
+  - 需要用提升权限重跑 `npm run build`。
+  - 构建通过时仍有 Turbopack NFT tracing warning，来自 `scripts/dashboard_runtime.js` 动态文件系统访问，当前不阻塞。
+- 浏览器验证已做：
+  - 桌面 1440px：中文正常、无水平溢出、主区列表不显示正文/QA/pipeline 详情。
+  - 移动端 390px：中文正常、无水平溢出、布局不重叠。
+  - “开始创作”弹窗可打开/关闭。
+  - 点击作品可切右栏“作品详情”。
+  - 点击任务可切右栏“任务详情”。
+  - 当前任务为空或被清空时，右栏默认概览、主区显示空状态。
+
+### 当前存储规则
+
+- 默认故事根目录：
+  - `D:\codex-workspace\story-forge\stories\`
+  - 若设置 `STORIES_ROOT`，则使用该目录。
+- 当前 Dashboard 作品库读取的是扁平完成作品目录：
+  - `stories/{YYYYMMDD}-{slug}/`
+  - 示例：`stories/20260703-topic-0/`、`stories/20260703-topic-0-2/`
+  - 重名时自动追加 `-2`、`-3` 等后缀。
+- 作品库只纳入：
+  - 有 `story.meta.json`
+  - 有 `final.md`
+  - `story.meta.json.status === "done"`
+- 单篇完成作品目录通常包含：
+  - `idea.json`
+  - `outline.json`
+  - `draft.md`
+  - `final.md`
+  - `story_manifest.json`
+  - `execution_trace.json`
+  - `pipeline_state.json`
+  - `agent_io.jsonl`
+  - `meta.json`
+  - `story.meta.json`
+  - `summary.txt`
+- 旧/核心 Workflow 仍可能生成嵌套目录：
+  - `stories/{YYYYMMDD}/{slug}/`
+  - Dashboard runtime 会把通过的故事整理/复制为扁平作品库目录。
+
+### 关键实现位置
+
+- 页面与交互：`app/page.js`
+- 全局视觉样式：`app/globals.css`
+- Dashboard runtime、故事生成、作品库扫描、任务队列：`scripts/dashboard_runtime.js`
+- 本地 SQLite dashboard store：`scripts/dashboard_store.py`
+- 作品库 API：
+  - `app/api/library/stories/route.js`
+  - `app/api/library/stories/[story_id]/metrics/route.js`
+- 本地文件夹 API：
+  - `app/api/folders/open/route.js`
+- 任务 API：
+  - `app/api/stories/tasks/route.js`
+  - `app/api/stories/tasks/[task_id]/cancel/route.js`
+  - `app/api/tasks/clear/route.js`
+- 主题 API：
+  - `app/api/topics/today/route.js`
+  - `app/api/topics/refresh/route.js`
+
+### 当前注意事项
+
+- 工作区仍是 dirty 状态，很多文件早于最近一轮已经修改；不要假设全是本轮改动。
+- 不要提交、重置或回滚，除非用户明确要求。
+- 不要把真实 DeepSeek key/API secret 写进 tracked 文件。
+- 不要新增 Agent，不要改 Story Manager 核心规则，不要改 workflow engine 顺序，除非用户明确提出。
+- 如需继续验证 UI，优先启动/访问 `http://127.0.0.1:3000/`。
+- 如果本地页面空状态显示 0 篇作品，先检查 `STORIES_ROOT`、`stories/` 目录和 `story.meta.json` 是否存在，不要直接判断功能坏了。
 
 ## 1. 当前架构
 
@@ -395,4 +515,3 @@ Provider 路线：
 - 不新增 Topic Planning、Diversity、Ranking 业务 agent。
 - 暂不接发布平台。
 - 暂不开发 Knowledge、Prompt Evolution 自动化或 SaaS 多用户系统。
-

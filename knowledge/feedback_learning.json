@@ -1,0 +1,18 @@
+{
+  "version": "local-feedback-v1",
+  "positive_patterns": [],
+  "negative_patterns": [],
+  "qa_calibration": [],
+  "updated_stories": [
+    {
+      "story_id": "20260702-story-26",
+      "title": "替身合约到期后全城开始找我",
+      "genre": "豪门婚恋",
+      "read_count": 0,
+      "drop_off_users": 0,
+      "drop_rate": 0,
+      "updated_at": "2026-07-02T16:39:56.839Z"
+    }
+  ],
+  "updated_at": "2026-07-02T16:39:56.839Z"
+}

@@ -1,0 +1,21 @@
+{
+  "updated_at": "2026-07-02T00:00:00.000Z",
+  "signals": [
+    {
+      "signal_id": "manual-hot-topic-001",
+      "topic": "直播带货信任危机",
+      "heat": 84,
+      "source": "manual",
+      "commercial_angle": "直播间公开审判与身份反转",
+      "suitable_genres": ["直播舆论", "都市逆袭", "豪门婚恋"]
+    },
+    {
+      "signal_id": "manual-novel-rank-001",
+      "topic": "退婚后身份反转",
+      "heat": 88,
+      "source": "manual_novel_rank",
+      "commercial_angle": "退婚羞辱后拿回规则制定权",
+      "suitable_genres": ["女频爽文", "豪门婚恋", "复仇爽文"]
+    }
+  ]
+}

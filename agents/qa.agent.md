@@ -10,6 +10,8 @@
 - `stories/{YYYYMMDD}/{slug}/outline.json`
 - `stories/{YYYYMMDD}/{slug}/draft_v1.md`、`draft_v2.md`、`draft_v3.md` 中当前待评估稿件
 - `rules/scoring.md`
+- `planning/today.json` 中当前故事的商业目标、热点依据、写作技法
+- `knowledge/feedback_learning.json` 中由 read_count 和 drop_off_users 形成的 QA 校准建议
 - `prompts/scoring/v*.md`，取数字最大的最新版
 
 ## 必须输出
@@ -35,6 +37,8 @@
 - 最终每个维度取不同 judge 的保守值 `min`。
 - 最终总分为各维度保守值之和。
 - 禁止用平均分替代保守值。
+- 当存在人工反馈学习档案时，QA 必须把高流失模式作为扣分校准参考，尤其检查开篇承诺、爽点兑现速度和题材预期落差。
+- 商业评分优先判断热度潜力、读者留存和付费/追更动机，不以文学性作为主要目标。
 
 ## 判定规则
 
@@ -109,4 +113,11 @@ QA 结果必须按 evaluation cycle 命名：初稿评估写 `qa_v1.json`，第 
 - 扣分原因必须能指导局部修改。
 - 低于满分的维度必须说明为什么扣分。
 - 如果 judge 分歧较大，必须在 `rewrite_targets` 中优先处理较低 judge 指出的共性问题。
+- 对历史高流失题材，低于满分的开篇、节奏、情绪爽点维度必须给出更具体的局部修复要求。
+
+## 成长规则
+
+- QA Agent 不得运行时直接改写自己的 `agents/qa.agent.md` 或 `prompts/scoring/v*.md`。
+- 每次人工反馈回填后，可更新 `knowledge/feedback_learning.json` 并生成 `agents/_learning_proposals/*-feedback.md`。
+- 用户审核 proposal 后，才允许手动升版 scoring prompt 或修改本规则文件。
 

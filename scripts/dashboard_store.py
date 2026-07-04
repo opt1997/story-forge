@@ -70,6 +70,27 @@ def init_db(conn: sqlite3.Connection) -> None:
           FOREIGN KEY(run_id) REFERENCES dashboard_runs(id),
           FOREIGN KEY(story_id) REFERENCES stories(id)
         );
+
+        CREATE TABLE IF NOT EXISTS topic_candidates (
+          id TEXT PRIMARY KEY,
+          date TEXT NOT NULL,
+          title TEXT NOT NULL,
+          genre TEXT,
+          summary TEXT,
+          heat_score INTEGER,
+          quality_score INTEGER,
+          tags TEXT,
+          source TEXT,
+          created_at TEXT NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS cancelled_tasks (
+          task_id TEXT PRIMARY KEY,
+          run_id TEXT,
+          story_index INTEGER,
+          story_id TEXT,
+          cancelled_at TEXT NOT NULL
+        );
         """
     )
     conn.commit()
@@ -217,6 +238,99 @@ def list_stories(conn: sqlite3.Connection) -> list[dict[str, Any]]:
     return [dict(row) for row in rows]
 
 
+def list_runs(conn: sqlite3.Connection) -> list[dict[str, Any]]:
+    rows = conn.execute(
+        """
+        SELECT id, status, requested_count, created_at, updated_at, error
+        FROM dashboard_runs
+        ORDER BY created_at DESC, id DESC
+        LIMIT 30
+        """
+    ).fetchall()
+    return [dict(row) for row in rows]
+
+
+def upsert_topic(conn: sqlite3.Connection, topic: dict[str, Any]) -> None:
+    conn.execute(
+        """
+        INSERT INTO topic_candidates
+          (id, date, title, genre, summary, heat_score, quality_score, tags, source, created_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ON CONFLICT(id) DO UPDATE SET
+          date = excluded.date,
+          title = excluded.title,
+          genre = excluded.genre,
+          summary = excluded.summary,
+          heat_score = excluded.heat_score,
+          quality_score = excluded.quality_score,
+          tags = excluded.tags,
+          source = excluded.source
+        """,
+        (
+            topic["id"],
+            topic["date"],
+            topic["title"],
+            topic.get("genre", ""),
+            topic.get("summary", ""),
+            int(topic.get("heat_score", 0)),
+            int(topic.get("quality_score", 0)),
+            json.dumps(topic.get("tags", []), ensure_ascii=False),
+            topic.get("source", "mock"),
+            topic.get("created_at") or now_iso(),
+        ),
+    )
+    conn.commit()
+
+
+def list_topics(conn: sqlite3.Connection, date: str) -> list[dict[str, Any]]:
+    rows = conn.execute(
+        """
+        SELECT id, date, title, genre, summary, heat_score, quality_score, tags, source, created_at
+        FROM topic_candidates
+        WHERE date = ?
+        ORDER BY quality_score DESC, heat_score DESC, id ASC
+        """,
+        (date,),
+    ).fetchall()
+    topics = []
+    for row in rows:
+        topic = dict(row)
+        try:
+            topic["tags"] = json.loads(topic.get("tags") or "[]")
+        except json.JSONDecodeError:
+            topic["tags"] = []
+        topics.append(topic)
+    return topics
+
+
+def clear_topics(conn: sqlite3.Connection, date: str) -> None:
+    conn.execute("DELETE FROM topic_candidates WHERE date = ?", (date,))
+    conn.commit()
+
+
+def cancel_task(conn: sqlite3.Connection, task_id: str, run_id: str | None, story_index: int | None, story_id: str | None) -> None:
+    conn.execute(
+        """
+        INSERT INTO cancelled_tasks (task_id, run_id, story_index, story_id, cancelled_at)
+        VALUES (?, ?, ?, ?, ?)
+        ON CONFLICT(task_id) DO UPDATE SET
+          run_id = excluded.run_id,
+          story_index = excluded.story_index,
+          story_id = excluded.story_id,
+          cancelled_at = excluded.cancelled_at
+        """,
+        (task_id, run_id, story_index, story_id, now_iso()),
+    )
+    conn.commit()
+
+
+def list_cancelled_tasks(conn: sqlite3.Connection) -> list[dict[str, Any]]:
+    rows = conn.execute(
+        "SELECT task_id, run_id, story_index, story_id, cancelled_at FROM cancelled_tasks"
+    ).fetchall()
+    return [dict(row) for row in rows]
+
+
 def fetch_run(conn: sqlite3.Connection, run_id: str) -> dict[str, Any] | None:
     run = row_to_dict(conn.execute("SELECT * FROM dashboard_runs WHERE id = ?", (run_id,)).fetchone())
     if not run:
@@ -282,6 +396,25 @@ def main() -> int:
 
     sub.add_parser("list-stories")
 
+    sub.add_parser("list-runs")
+
+    upsert_topic_cmd = sub.add_parser("upsert-topic")
+    upsert_topic_cmd.add_argument("--payload", required=True)
+
+    topics = sub.add_parser("list-topics")
+    topics.add_argument("--date", required=True)
+
+    clear_topics_cmd = sub.add_parser("clear-topics")
+    clear_topics_cmd.add_argument("--date", required=True)
+
+    cancel_task_cmd = sub.add_parser("cancel-task")
+    cancel_task_cmd.add_argument("--task-id", required=True)
+    cancel_task_cmd.add_argument("--run-id", default=None)
+    cancel_task_cmd.add_argument("--story-index", type=int, default=None)
+    cancel_task_cmd.add_argument("--story-id", default=None)
+
+    sub.add_parser("list-cancelled-tasks")
+
     args = parser.parse_args()
     root = Path(args.root)
     with connect(root) as conn:
@@ -309,6 +442,21 @@ def main() -> int:
             print_json(fetch_run(conn, args.run_id) or {})
         elif args.cmd == "list-stories":
             print_json({"stories": list_stories(conn)})
+        elif args.cmd == "list-runs":
+            print_json({"runs": list_runs(conn)})
+        elif args.cmd == "upsert-topic":
+            upsert_topic(conn, json.loads(args.payload))
+            print_json({"ok": True})
+        elif args.cmd == "list-topics":
+            print_json({"topics": list_topics(conn, args.date)})
+        elif args.cmd == "clear-topics":
+            clear_topics(conn, args.date)
+            print_json({"ok": True})
+        elif args.cmd == "cancel-task":
+            cancel_task(conn, args.task_id, args.run_id, args.story_index, args.story_id)
+            print_json({"ok": True})
+        elif args.cmd == "list-cancelled-tasks":
+            print_json({"tasks": list_cancelled_tasks(conn)})
     return 0
 
 

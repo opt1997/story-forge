@@ -1,15 +1,13 @@
-import dashboardRuntime from "../../../scripts/dashboard_runtime.js";
+import dashboardRuntime from "../../../../scripts/dashboard_runtime.js";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
-export const maxDuration = 60;
 
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
-    const runId = searchParams.get("run_id") || undefined;
     const root = process.env.STORY_FORGE_DATA_ROOT || process.cwd();
-    const result = await dashboardRuntime.getDashboardState(root, runId);
+    const result = await dashboardRuntime.getTaskQueue(root, { limit: searchParams.get("limit") });
     return NextResponse.json(result);
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
